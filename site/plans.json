@@ -1,0 +1,56 @@
+[
+  {
+    "id": "seed1",
+    "provider": "Airalo",
+    "plan_name": "Eurolink 5GB",
+    "region": "Europe",
+    "country": "Multi",
+    "data_gb": 5,
+    "validity_days": 30,
+    "price_usd": 15.0,
+    "product_url": "https://example.airalo.com/eurolink-5gb?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
+    "timestamp": "2025-10-01T09:00:00Z",
+    "metrics": {
+      "price_per_gb": 3.0,
+      "price_per_day": 0.5,
+      "unlimited": false
+    },
+    "rank": 1
+  },
+  {
+    "id": "seed2",
+    "provider": "Nomad",
+    "plan_name": "USA 10GB",
+    "region": "North America",
+    "country": "USA",
+    "data_gb": 10,
+    "validity_days": 30,
+    "price_usd": 18.0,
+    "product_url": "https://example.getnomad.app/usa-10gb?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
+    "timestamp": "2025-10-02T09:00:00Z",
+    "metrics": {
+      "price_per_gb": 1.8,
+      "price_per_day": 0.6,
+      "unlimited": false
+    },
+    "rank": 2
+  },
+  {
+    "id": "seed3",
+    "provider": "Holafly",
+    "plan_name": "Japan Unlimited",
+    "region": "Asia",
+    "country": "Japan",
+    "data_gb": "unlimited",
+    "validity_days": 15,
+    "price_usd": 29.0,
+    "product_url": "https://example.holafly.com/japan-unlimited?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
+    "timestamp": "2025-10-03T09:00:00Z",
+    "metrics": {
+      "price_per_gb": null,
+      "price_per_day": 1.9333,
+      "unlimited": true
+    },
+    "rank": 3
+  }
+]
