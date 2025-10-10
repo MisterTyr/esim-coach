@@ -1,4 +1,38 @@
-/* Minimal, clean UI */
+/* ===========================================
+   Custom Bootstrap Theme Overrides
+   =========================================== */
+
+:root {
+  --bs-primary: #14213D;
+  --bs-secondary: #FCA311;
+  --bs-light: #E5E5E5;
+  --bs-dark: #312B2B;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-primary:hover {
+  background-color: #0e1a31;
+  border-color: #0e1a31;
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+.btn-secondary:hover {
+  background-color: #d98f0f;
+  border-color: #d98f0f;
+}
+
+/* General colour defaults */
+body {
+  background-color: var(--bs-light);
+  color: var(--bs-dark);
+}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial}
 .hero{padding:2rem 1rem;text-align:center;border-bottom:1px solid #eee}
 .hero h1{margin:0;font-weight:800;letter-spacing:-0.02em}
