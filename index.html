@@ -16,23 +16,57 @@
 
 
 <body>
-<header class='hero'>
-  <h1>eSIMRanker</h1>
-  <p class='tag'>Autonomous, always‑fresh eSIM deals</p>
-  <nav class='filters'><button data-filter='all' class='active'>All</button>
-<button data-filter='Europe'>Europe</button>
-<button data-filter='North America'>North America</button>
-<button data-filter='Asia'>Asia</button>
-<button data-filter='South America'>South America</button>
-<button data-filter='Oceania'>Oceania</button>
-<button data-filter='Africa'>Africa</button>
-<button data-filter='Global'>Global</button></nav>
-  <nav class='evergreen'>
-    <a href='what-is-esim.html'>What is an eSIM?</a>
-    <a href='how-to-install-esim.html'>How to install</a>
-    <a href='why-esim.html'>Why you need one</a>
-  </nav>
+<!-- Sticky Header -->
+<header class="position-sticky top-0 z-3 bg-body border-bottom">
+  <div class="container-fluid py-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <a href="/" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+        <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Site Logo" class="img-fluid" style="max-height:40px;">
+        <!-- Optional text wordmark -->
+        <!-- <span class="fs-5 fw-semibold text-body">YourSite</span> -->
+      </a>
+
+      <!-- Burger -->
+      <button class="btn btn-outline-secondary d-inline-flex align-items-center"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mainMenu"
+              aria-controls="mainMenu"
+              aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
 </header>
+
+<!-- Offcanvas Menu (slides in from right) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mainMenu" aria-labelledby="mainMenuLabel">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="mainMenuLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column">
+    <nav class="nav flex-column gap-2">
+      <a class="nav-link px-0" href="/">Home</a>
+      <a class="nav-link px-0" href="/blog">Blog</a>
+      <a class="nav-link px-0" href="/about">About</a>
+      <a class="nav-link px-0" href="/contact">Contact</a>
+    </nav>
+
+    <hr class="my-4">
+
+    <!-- Optional secondary block -->
+    <div class="small text-muted">
+      <p class="mb-1">Quick Links</p>
+      <ul class="list-unstyled mb-0">
+        <li><a class="link-secondary" href="/privacy">Privacy Policy</a></li>
+        <li><a class="link-secondary" href="/affiliate">Affiliate Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 <main id='grid'>
   
     <article class='card' data-region='Europe' data-provider='Airalo'>

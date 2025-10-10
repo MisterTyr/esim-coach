@@ -39,3 +39,23 @@ body {
   color: var(--bs-dark);
 }
 
+/* Make offcanvas full width on mobile, 50vw on desktop */
+#mainMenu { --bs-offcanvas-padding-x: 1.25rem; }
+
+@media (max-width: 767.98px) {
+  #mainMenu { --bs-offcanvas-width: 100vw; }
+}
+
+@media (min-width: 768px) {
+  #mainMenu { --bs-offcanvas-width: 50vw; }
+}
+
+/* Use Bootstrap's built-in burger glyph if navbar-toggler-icon has no background */
+.navbar-toggler-icon {
+  /* only applied if your project hasn't set this already */
+  background-image: var(--bs-navbar-toggler-icon-bg, 
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,.65)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"));
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+}
