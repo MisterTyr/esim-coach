@@ -1,38 +1,33 @@
 /* ===========================================
    Custom Bootstrap Theme Overrides
    =========================================== */
-:root {
-  /* Hex tokens */
-  --bs-primary:   #14213D;
-  --bs-secondary: #FCA311;
-  --bs-light:     #E5E5E5;
-  --bs-dark:      #312B2B;
-
-  /* RGB tokens for utilities (Bootstrap uses these for bg/text helpers) */
-  --bs-primary-rgb:   20, 33, 61;   /* #14213D */
-  --bs-secondary-rgb: 252, 163, 17; /* #FCA311 */
-  --bs-light-rgb:     229, 229, 229;/* #E5E5E5 */
-  --bs-dark-rgb:      49, 43, 43;   /* #312B2B */
-}
-
-/* Buttons (optional refinements) */
-.btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
-}
-.btn-primary:hover {
-  background-color: #0e1a31;
-  border-color: #0e1a31;
-}
-.btn-secondary {
-  background-color: var(--bs-secondary);
-  border-color: var(--bs-secondary);
-}
-.btn-secondary:hover {
-  background-color: #d98f0f;
-  border-color: #d98f0f;
-}
-
+/* Your palette */
+   :root,
+   [data-bs-theme="light"] {
+     --bs-primary: #14213D;
+     --bs-primary-rgb: 20,33,61;
+   
+     --bs-secondary: #FCA311;
+     --bs-secondary-rgb: 252,163,17;
+   
+     --bs-light: #E5E5E5;
+     --bs-light-rgb: 229,229,229;
+   
+     --bs-dark: #312B2B;
+     --bs-dark-rgb: 49,43,43;
+   
+     /* Optional: keep links in sync with your brand */
+     --bs-link-color: var(--bs-primary);
+     --bs-link-hover-color: #0e1a31;
+   }
+   
+   /* If you ever use dark mode, set those too */
+   [data-bs-theme="dark"] {
+     --bs-primary: #FCA311;
+     --bs-primary-rgb: 252,163,17;
+     --bs-body-color: #E5E5E5;
+     --bs-body-bg: #0b0f17;
+   }
 /* General colour defaults */
 body {
   background-color: var(--bs-light);
