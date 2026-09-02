@@ -1,56 +1,88 @@
-/* ===========================================
-   Custom Bootstrap Theme Overrides
-   =========================================== */
-/* Your palette */
-   :root,
-   [data-bs-theme="light"] {
-     --bs-primary: #14213D;
-     --bs-primary-rgb: 20,33,61;
-   
-     --bs-secondary: #FCA311;
-     --bs-secondary-rgb: 252,163,17;
-   
-     --bs-light: #E5E5E5;
-     --bs-light-rgb: 229,229,229;
-   
-     --bs-dark: #312B2B;
-     --bs-dark-rgb: 49,43,43;
-   
-     /* Optional: keep links in sync with your brand */
-     --bs-link-color: var(--bs-primary);
-     --bs-link-hover-color: #0e1a31;
-   }
-   
-   /* If you ever use dark mode, set those too */
-   [data-bs-theme="dark"] {
-     --bs-primary: #FCA311;
-     --bs-primary-rgb: 252,163,17;
-     --bs-body-color: #E5E5E5;
-     --bs-body-bg: #0b0f17;
-   }
-/* General colour defaults */
+:root {
+  --bg: #0f1220;
+  --panel: #171b2e;
+  --panel-2: #1f2540;
+  --text: #eef1f8;
+  --muted: #9aa3c0;
+  --accent: #4ade80;
+  --accent-2: #38bdf8;
+  --border: #2a3152;
+  --radius: 14px;
+  --wrap: 1100px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background-color: var(--bs-light);
-  color: var(--bs-dark);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
+a { color: var(--accent-2); }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
 
-/* Make offcanvas full width on mobile, 50vw on desktop */
-#mainMenu { --bs-offcanvas-padding-x: 1.25rem; }
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 20; background: rgba(15,18,32,.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+.brand img { height: 34px; width: auto; }
+.site-nav { display: flex; gap: 6px; }
+.site-nav a { color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 8px; font-size: .95rem; }
+.site-nav a:hover { color: var(--text); background: var(--panel-2); }
+.site-nav a.active { color: var(--text); background: var(--panel-2); }
+.nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); font-size: 1.3rem; border-radius: 8px; padding: 4px 10px; cursor: pointer; }
 
-@media (max-width: 767.98px) {
-  #mainMenu { --bs-offcanvas-width: 100vw; }
-}
+/* Hero */
+.hero { padding: 54px 0 22px; text-align: center; background: radial-gradient(1200px 300px at 50% -50%, rgba(56,189,248,.18), transparent); }
+.hero h1 { margin: 0; font-size: 2.6rem; letter-spacing: -.5px; }
+.hero .tagline { font-size: 1.25rem; color: var(--accent); margin: 8px 0 4px; }
+.hero .sub { color: var(--muted); margin: 0; }
 
-@media (min-width: 768px) {
-  #mainMenu { --bs-offcanvas-width: 50vw; }
-}
+/* Filters */
+.controls { position: sticky; top: 62px; z-index: 10; background: rgba(15,18,32,.9); backdrop-filter: blur(8px); padding: 14px 0; border-bottom: 1px solid var(--border); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter { background: var(--panel); color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; cursor: pointer; font-size: .9rem; transition: .15s; }
+.filter:hover { color: var(--text); }
+.filter.active { background: var(--accent); color: #0a2e18; border-color: var(--accent); font-weight: 600; }
 
-/* Use Bootstrap's built-in burger glyph if navbar-toggler-icon has no background */
-.navbar-toggler-icon {
-  /* only applied if your project hasn't set this already */
-  background-image: var(--bs-navbar-toggler-icon-bg, 
-    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,.65)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"));
-  width: 1.5em;
-  height: 1.5em;
-  display: inline-block;
+/* Grid + cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 24px 0 48px; }
+.card { position: relative; background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; }
+.card .rank { position: absolute; top: 14px; right: 14px; font-size: .8rem; color: var(--muted); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 2px 9px; }
+.card h3 { margin: 0 0 2px; font-size: 1.15rem; display: flex; flex-direction: column; }
+.card h3 small { font-weight: 400; color: var(--muted); font-size: .9rem; }
+.card .meta { color: var(--muted); font-size: .85rem; margin: 6px 0 0; }
+.card .specs { margin: 2px 0 10px; font-size: .95rem; }
+.card .price { font-size: 1.7rem; font-weight: 700; margin: auto 0 12px; display: flex; align-items: baseline; gap: 10px; }
+.card .price .value { font-size: .8rem; font-weight: 500; color: var(--accent); }
+.card .cta { display: block; text-align: center; text-decoration: none; background: var(--accent); color: #0a2e18; font-weight: 600; padding: 10px; border-radius: 10px; transition: .15s; }
+.card .cta:hover { filter: brightness(1.08); }
+.card.hidden { display: none; }
+.card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 8px 30px rgba(74,222,128,.15); }
+.card.featured .ribbon { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #0a2e18; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+.card.featured h3 { margin-top: 20px; }
+.empty { color: var(--muted); padding: 40px 0; }
+
+/* Article pages */
+.article { padding: 34px 0 60px; max-width: 760px; }
+.article h1 { font-size: 2rem; letter-spacing: -.4px; margin-bottom: 10px; }
+.article h2 { font-size: 1.3rem; margin-top: 30px; }
+.article p { color: #dfe4f2; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border); background: var(--panel); margin-top: 20px; }
+.site-footer .wrap { padding: 26px 20px; }
+.site-footer .disclosure { color: var(--muted); font-size: .85rem; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 16px; margin: 12px 0; }
+.footer-nav a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+.footer-nav a:hover { color: var(--text); }
+.site-footer .copy { color: var(--muted); font-size: .8rem; margin: 0; }
+
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  .site-nav { display: none; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column; background: var(--panel); border-bottom: 1px solid var(--border); padding: 8px 16px; }
+  body.nav-open .site-nav { display: flex; }
+  .controls { top: 62px; }
+  .hero h1 { font-size: 2.1rem; }
 }
