@@ -1,2 +1,2 @@
-requests
-python-dateutil
+requests>=2.31
+python-dateutil>=2.9

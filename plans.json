@@ -1,56 +1,363 @@
 [
   {
-    "id": "seed1",
-    "provider": "Airalo",
-    "plan_name": "Eurolink 5GB",
-    "region": "Europe",
+    "provider": "Honest Mobile",
+    "plan_name": "Smart SIM Global",
+    "region": "Global",
     "country": "Multi",
-    "data_gb": 5,
-    "validity_days": 30,
-    "price_usd": 15.0,
-    "product_url": "https://example.airalo.com/eurolink-5gb?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
-    "timestamp": "2025-10-01T09:00:00Z",
+    "data_gb": "unlimited",
+    "validity_days": 365,
+    "price": 45.0,
+    "product_url": "https://honestmobile.com/smart-sim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
     "metrics": {
-      "price_per_gb": 3.0,
-      "price_per_day": 0.5,
-      "unlimited": false
+      "price_per_gb": null,
+      "price_per_day": 0.1233,
+      "unlimited": true
     },
+    "id": "b536a65eef",
+    "featured": true,
     "rank": 1
   },
   {
-    "id": "seed2",
+    "provider": "Honest Mobile",
+    "plan_name": "Unlimited Plan",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": "unlimited",
+    "validity_days": 30,
+    "price": 25.0,
+    "product_url": "https://honestmobile.com/plans?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": null,
+      "price_per_day": 0.8333,
+      "unlimited": true
+    },
+    "id": "73e9e6009b",
+    "featured": true,
+    "rank": 2
+  },
+  {
+    "provider": "Honest Mobile",
+    "plan_name": "10GB Plan",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 17.5,
+    "product_url": "https://honestmobile.com/plans?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.75,
+      "price_per_day": 0.5833,
+      "unlimited": false
+    },
+    "id": "9ae036bfb7",
+    "featured": true,
+    "rank": 3
+  },
+  {
+    "provider": "Sim Local",
+    "plan_name": "UK 80GB (EE)",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": 80.0,
+    "validity_days": 30,
+    "price": 15.8,
+    "product_url": "https://www.simlocal.com/plan-selection/united-kingdom?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 0.1975,
+      "price_per_day": 0.5267,
+      "unlimited": false
+    },
+    "id": "8999555290",
+    "featured": false,
+    "rank": 4
+  },
+  {
+    "provider": "Sim Local",
+    "plan_name": "UK 30GB (EE)",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": 30.0,
+    "validity_days": 30,
+    "price": 15.0,
+    "product_url": "https://www.simlocal.com/plan-selection/united-kingdom?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 0.5,
+      "price_per_day": 0.5,
+      "unlimited": false
+    },
+    "id": "7b05dc33d6",
+    "featured": false,
+    "rank": 5
+  },
+  {
+    "provider": "SMARTY",
+    "plan_name": "UK Unlimited",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": "unlimited",
+    "validity_days": 30,
+    "price": 20.0,
+    "product_url": "https://smarty.co.uk/all-plans?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": null,
+      "price_per_day": 0.6667,
+      "unlimited": true
+    },
+    "id": "a2cf29aea5",
+    "featured": false,
+    "rank": 6
+  },
+  {
+    "provider": "Nomad",
+    "plan_name": "Thailand 15GB",
+    "region": "Asia",
+    "country": "Thailand",
+    "data_gb": 15.0,
+    "validity_days": 30,
+    "price": 15.0,
+    "product_url": "https://www.getnomad.app/thailand-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.0,
+      "price_per_day": 0.5,
+      "unlimited": false
+    },
+    "id": "0a70a66499",
+    "featured": false,
+    "rank": 7
+  },
+  {
+    "provider": "Saily",
+    "plan_name": "Europe 20GB",
+    "region": "Europe",
+    "country": "Multi",
+    "data_gb": 20.0,
+    "validity_days": 30,
+    "price": 21.0,
+    "product_url": "https://saily.com/europe-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.05,
+      "price_per_day": 0.7,
+      "unlimited": false
+    },
+    "id": "35c5582815",
+    "featured": false,
+    "rank": 8
+  },
+  {
     "provider": "Nomad",
     "plan_name": "USA 10GB",
     "region": "North America",
     "country": "USA",
-    "data_gb": 10,
+    "data_gb": 10.0,
     "validity_days": 30,
-    "price_usd": 18.0,
-    "product_url": "https://example.getnomad.app/usa-10gb?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
-    "timestamp": "2025-10-02T09:00:00Z",
+    "price": 14.0,
+    "product_url": "https://www.getnomad.app/usa-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.4,
+      "price_per_day": 0.4667,
+      "unlimited": false
+    },
+    "id": "add5e63f55",
+    "featured": false,
+    "rank": 9
+  },
+  {
+    "provider": "Airalo",
+    "plan_name": "Japan 10GB",
+    "region": "Asia",
+    "country": "Japan",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 15.0,
+    "product_url": "https://www.airalo.com/japan-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.5,
+      "price_per_day": 0.5,
+      "unlimited": false
+    },
+    "id": "08ebc3fbf3",
+    "featured": false,
+    "rank": 10
+  },
+  {
+    "provider": "Jetpac",
+    "plan_name": "UK 10GB",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 15.8,
+    "product_url": "https://www.jetpacglobal.com/product-details/united-kingdom-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 1.58,
+      "price_per_day": 0.5267,
+      "unlimited": false
+    },
+    "id": "9ed29ecc38",
+    "featured": false,
+    "rank": 11
+  },
+  {
+    "provider": "Airalo",
+    "plan_name": "Australia 10GB",
+    "region": "Oceania",
+    "country": "Australia",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 18.0,
+    "product_url": "https://www.airalo.com/australia-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
     "metrics": {
       "price_per_gb": 1.8,
       "price_per_day": 0.6,
       "unlimited": false
     },
-    "rank": 2
+    "id": "bfd7d2e7a8",
+    "featured": false,
+    "rank": 12
   },
   {
-    "id": "seed3",
+    "provider": "Nomad",
+    "plan_name": "South America 10GB",
+    "region": "South America",
+    "country": "Multi",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 23.0,
+    "product_url": "https://www.getnomad.app/south-america-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 2.3,
+      "price_per_day": 0.7667,
+      "unlimited": false
+    },
+    "id": "d3947e1bf8",
+    "featured": false,
+    "rank": 13
+  },
+  {
+    "provider": "Airalo",
+    "plan_name": "United Kingdom 5GB",
+    "region": "Europe",
+    "country": "UK",
+    "data_gb": 5.0,
+    "validity_days": 30,
+    "price": 11.85,
+    "product_url": "https://www.airalo.com/united-kingdom-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 2.37,
+      "price_per_day": 0.395,
+      "unlimited": false
+    },
+    "id": "874bf62b8d",
+    "featured": false,
+    "rank": 14
+  },
+  {
     "provider": "Holafly",
-    "plan_name": "Japan Unlimited",
-    "region": "Asia",
-    "country": "Japan",
+    "plan_name": "Europe Unlimited 15d",
+    "region": "Europe",
+    "country": "Multi",
     "data_gb": "unlimited",
     "validity_days": 15,
-    "price_usd": 29.0,
-    "product_url": "https://example.holafly.com/japan-unlimited?aff=YOUR_AFFILIATE_ID&utm_source=esimranker&utm_medium=site&utm_campaign=autonomous",
-    "timestamp": "2025-10-03T09:00:00Z",
+    "price": 38.0,
+    "product_url": "https://esim.holafly.com/europe-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
     "metrics": {
       "price_per_gb": null,
-      "price_per_day": 1.9333,
+      "price_per_day": 2.5333,
       "unlimited": true
     },
-    "rank": 3
+    "id": "72fae23263",
+    "featured": false,
+    "rank": 15
+  },
+  {
+    "provider": "Holafly",
+    "plan_name": "Asia Unlimited 15d",
+    "region": "Asia",
+    "country": "Multi",
+    "data_gb": "unlimited",
+    "validity_days": 15,
+    "price": 38.0,
+    "product_url": "https://esim.holafly.com/asia-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": null,
+      "price_per_day": 2.5333,
+      "unlimited": true
+    },
+    "id": "27c7e72fb3",
+    "featured": false,
+    "rank": 16
+  },
+  {
+    "provider": "Airalo",
+    "plan_name": "USA 5GB",
+    "region": "North America",
+    "country": "USA",
+    "data_gb": 5.0,
+    "validity_days": 30,
+    "price": 13.0,
+    "product_url": "https://www.airalo.com/united-states-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 2.6,
+      "price_per_day": 0.4333,
+      "unlimited": false
+    },
+    "id": "1649f61204",
+    "featured": false,
+    "rank": 17
+  },
+  {
+    "provider": "Airalo",
+    "plan_name": "Europe 10GB",
+    "region": "Europe",
+    "country": "Multi",
+    "data_gb": 10.0,
+    "validity_days": 30,
+    "price": 27.65,
+    "product_url": "https://www.airalo.com/europe-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 2.765,
+      "price_per_day": 0.9217,
+      "unlimited": false
+    },
+    "id": "11b5820147",
+    "featured": false,
+    "rank": 18
+  },
+  {
+    "provider": "Saily",
+    "plan_name": "Brazil 5GB",
+    "region": "South America",
+    "country": "Brazil",
+    "data_gb": 5.0,
+    "validity_days": 30,
+    "price": 14.0,
+    "product_url": "https://saily.com/brazil-esim?ref=YOUR_AFFILIATE_ID&utm_source=esimcoach&utm_medium=site&utm_campaign=ranker",
+    "timestamp": "2026-07-08T09:00:00+00:00",
+    "metrics": {
+      "price_per_gb": 2.8,
+      "price_per_day": 0.4667,
+      "unlimited": false
+    },
+    "id": "345e902f49",
+    "featured": false,
+    "rank": 19
   }
 ]
