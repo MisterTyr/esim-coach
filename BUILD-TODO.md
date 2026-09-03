@@ -6,6 +6,19 @@ and `README.md` describes the intended system rather than the current state.
 
 Convention: `[x]` done, `[~]` in progress, `[ ]` open, `[!]` needs a decision.
 
+## Safety pass — 2026-09-02
+
+Version control only; no feature work, nothing generated, no importer run.
+
+The July rebuild is committed and pushed. It went up as seven commits rather than
+one, so the history reads as what happened: `.gitignore` and the tracked `.DS_Store`
+files, then `Archive Build/`, then the data pipeline, then the site rebuild, then
+the removal of the superseded automation, then the workflow, then the planning docs.
+`Archive Build/` deliberately precedes the deletions.
+
+What is still open here is deployment, not preservation: the domain, the Sheet
+secret, and the auto-push-with-no-review trap below.
+
 ## Current state (2026-09-02)
 
 The build is genuinely finished and the launch is genuinely not started. Every
@@ -25,19 +38,24 @@ generated file on disk dates from 9 July 2026.
 
 ## Blocking — do these first
 
-- [ ] **[!] Commit the July rebuild.** 24 modified/deleted files and 17 untracked
-  paths, no branch, no stash, no backup. Last commit is `ef64adb`, 10 Oct 2025. One
-  `git checkout .` plus `git clean -fd` erases the entire July build *and*
-  `Archive Build/`. This is the only copy that exists.
+- [x] **[!] Commit the July rebuild** — 2026-09-02. Seven commits on top of
+  `ef64adb`, pushed to `origin/main` as `a53b4be`. `Archive Build/` went in FIRST,
+  before the deletions, so the originals are recoverable two ways.
   - The deletions themselves are safe: `automation/n8n/flow.json`,
     `google_sheets/apps_script.gs`, `data/sources/*` and `terms.md` all survive
     inside `Archive Build/`, and the old logo was renamed to `assets/img/logo.png`.
     But that safety net is untracked too.
-- [ ] **The remote serves the wrong site.** `origin/main` is still the October 2025
-  scaffold. Connect a host to that repo today and you deploy the old build.
-- [ ] **`.github/` is untracked**, so the daily Action exists only on this Mac.
-  GitHub has no workflow at all — the "runs itself daily" claim in README and
-  LAUNCH-PLAN is not true of anything on the remote.
+- [x] **The remote serves the wrong site** — fixed 2026-09-02. `origin/main` is now
+  `a53b4be`. Verified against the GitHub API rather than trusting the push: the July
+  files (`about.html`, `data/config.json`, the HTML policy pages, `robots.txt`,
+  `sitemap.xml`, `prompts/`) all resolve on the remote, and the superseded ones
+  (`automation/n8n/flow.json`, `google_sheets/apps_script.gs`, `privacy-policy.md`,
+  `terms.md`) all 404.
+- [x] **`.github/` is untracked** — fixed 2026-09-02. `update.yml` is on the remote
+  and confirmed present there.
+- [ ] **[!] Set `SHEET_CSV_URL`** in Settings -> Secrets and variables -> Actions.
+  Until it is set the daily Action runs against the sample CSV, so it will "succeed"
+  daily while publishing nothing real. The workflow is live now, so this matters.
 - [ ] **The domain is unattached.** `esim.coach` serves a TLS certificate that does
   not match the hostname, so the site is unreachable over HTTPS. The repo carries no
   host config (no `_headers`, no `netlify.toml`) to say which deploy option was
@@ -87,12 +105,12 @@ generated file on disk dates from 9 July 2026.
 - [ ] The Action's commit step is `git add plans.json sitemap.xml index.html *.html`,
   which will not pick up anything in a subdirectory. A future `/guides/` folder would
   silently never publish.
-- [ ] `Archive Build/` is a full untracked duplicate of the old scaffold, including
-  an n8n flow and a Google Apps Script the current build does not use. Decide
-  whether it is a backup worth keeping or clutter, then either commit it somewhere
-  sensible or delete it — but not before the rebuild is committed.
-- [ ] `.gitignore.html` is a gitignore body saved with an `.html` extension and it is
-  tracked. It would deploy as a page.
+- [x] `Archive Build/` — decided 2026-09-02: kept and committed as-is (21 files,
+  128KB) in `57ba2f7`, before the deletions landed. Safe to delete from the working
+  tree whenever you trust the history; the files are in both places until then.
+- [x] `.gitignore.html` — deleted 2026-09-02. It was a gitignore body saved with an
+  `.html` extension, tracked, and would have deployed as a page. Recoverable from
+  history if it turns out to have been wanted.
 - [ ] **Auto-push with no review.** The workflow holds `contents: write` and pushes
   straight to main, and the Sheet URL is committed in plain text. Once the Sheet is
   wired, a bad spreadsheet edit goes live unattended and anyone with the repo can
