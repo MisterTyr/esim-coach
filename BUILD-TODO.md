@@ -56,7 +56,7 @@ generated file on disk dates from 9 July 2026.
 - [ ] **[!] Set `SHEET_CSV_URL`** in Settings -> Secrets and variables -> Actions.
   Until it is set the daily Action runs against the sample CSV, so it will "succeed"
   daily while publishing nothing real. The workflow is live now, so this matters.
-- [ ] **The domain is unattached.** `esim.coach` serves a TLS certificate that does
+- [~] **The domain is being replaced.** `esim.coach` serves a TLS certificate that does
   not match the hostname, so the site is unreachable over HTTPS. The repo carries no
   host config (no `_headers`, no `netlify.toml`) to say which deploy option was
   chosen. Decide, then wire it.
@@ -65,7 +65,7 @@ generated file on disk dates from 9 July 2026.
 
 - [x] Day 1, build the skeleton — done, locally.
 - [ ] Day 1, deploy — never happened. See the domain and remote items above.
-- [ ] **Day 2, real plan data.** `data/config.json` has a real published-Sheet CSV
+- [~] **Day 2, real plan data.** `data/config.json` has a real published-Sheet CSV
   URL as the *primary* source with `enabled: true`, yet `plans.json` is still the 19
   sample rows. So the Sheet has either never been pulled or returned nothing. One
   run finds out which.
@@ -84,16 +84,16 @@ generated file on disk dates from 9 July 2026.
 
 ## Honesty problems
 
-- [ ] **[!] The pin contradicts the disclosure, twice.**
+- [x] **[!] The pin contradicted the disclosure, twice.** Settled 2026-09-03.
   `config.json` sets `pin_providers: ["Honest Mobile"]`, which puts all three Honest
   Mobile plans at ranks 1-3 with "Top pick" ribbons. Meanwhile `about.html` says
   ranking is "driven only by the value maths" and `affiliate-disclosure.html` says
   commercial relationships have "no bearing on where its plans appear". This is a
   disclosure problem, not a wording nitpick. Either drop the pin, or label it as
   placement and rewrite both pages.
-- [ ] **"Top pick" is overloaded** — the same badge marks the pinned provider and
+- [x] **"Top pick" was overloaded** — the same badge marks the pinned provider and
   reads as an editorial verdict. No separate sponsored/featured styling exists.
-- [ ] **The site would publish two-month-old sample prices under a "refreshed daily"
+- [~] **The site would publish two-month-old sample prices under a "refreshed daily"
   claim.** Plan rows are timestamped 2026-07-08, the footer says "Data refreshed
   daily" and the hero says "Updated 09 Jul 2026".
 
@@ -115,3 +115,171 @@ generated file on disk dates from 9 July 2026.
   straight to main, and the Sheet URL is committed in plain text. Once the Sheet is
   wired, a bad spreadsheet edit goes live unattended and anyone with the repo can
   read the source URL.
+
+## Session 2026-09-03 — what changed
+
+**The host question is answered: GitHub Pages, already connected.** `esim.coach`
+serves a working site over plain HTTP right now, and the response headers say
+`server: GitHub.com`. So Option C in `prompts/07-deploy.md` was taken at some
+point, the `CNAME` file is doing its job, and the repo is already wired to Pages.
+Nothing new to sign up for and nothing to pay for. The site it serves is the
+October 2025 eSIMRanker scaffold, because the July build has never been pushed.
+
+**HTTPS fails because of one stray DNS record.** `esim.coach` resolves to five A
+records: the four correct GitHub Pages IPs (`185.199.108-111.153`) plus
+`192.64.119.69`, which is Namecheap parking. Requests that land on the fifth get
+Namecheap's certificate, which is the hostname mismatch, and its presence also
+stops GitHub completing its own certificate. Nameservers are
+`dns1/dns2.registrar-servers.com`, so the domain sits on Namecheap BasicDNS.
+Fix: delete that one A record, add `www` as a CNAME to `mistertyr.github.io`,
+then re-save the custom domain in repo Settings → Pages and tick Enforce HTTPS.
+
+**The July rebuild is committed but not pushed.** Working tree is clean, seven
+commits sit on top of `ef64adb`, and both `.github/` and `Archive Build/` are
+tracked. So a stray `git clean -fd` can no longer erase anything. But `origin`
+still has none of it, so the only copy is this Mac until someone runs
+`git push origin main`. That push is also what replaces the live 2025 site.
+
+**The Google Sheet works.** Fetched the published CSV directly: HTTP 200, 22 data
+rows, correct headers. It has simply never held anything but the July sample data
+- same rows, same `2026-07-08` timestamps, every `product_url` still carrying
+`ref=YOUR_AFFILIATE_ID`. Providers in it: Airalo 8, Honest Mobile 3, Nomad 3,
+Holafly 2, Saily 2, Sim Local 2, Jetpac 1, SMARTY 1. So the pipeline is sound and
+the sheet is the right place to put real prices. Note the generator can only reach
+it with working network - it fails to the local sample CSV otherwise, quietly.
+
+**The pin is now disclosed rather than hidden.** Decision: Honest Mobile keeps the
+top three slots as paid placement, and the site says so. Implemented:
+- `update_plans.py` records `value_rank` before placement is applied, and awards
+  `top_pick` to the plan that wins on value alone. That badge cannot be bought.
+- `build_static.py` renders two separate labels: green "Top pick" for merit,
+  neutral outlined "Paid placement" for the pinned slots. A plan can carry both,
+  and Honest Mobile's Smart SIM Global currently does, honestly.
+- `styles.css` gains `.ribbons`, `.ribbon-top` and `.ribbon-paid`; `.card.featured`
+  becomes `.card.top-pick` and `.card.placement`.
+- `content.py` rewrites the "How we're funded" paragraph in about.html and the
+  "How it affects rankings" answer in affiliate-disclosure.html to state the paid
+  arrangement plainly.
+
+**The refresh claim is out until it is true.** The hero read "Updated <today>" from
+the clock, so it would have claimed today's date over July prices on every build.
+It now reads "Prices last checked 08 Jul 2026", taken from the newest `timestamp`
+in `plans.json`. The footer's "Data refreshed daily" is removed until the daily
+Action has actually run once.
+
+## Still open after this session
+
+- [ ] Push. `git push origin main` from Marty's own terminal - the sandbox has no
+  GitHub credentials. Nothing above reaches the public until this happens.
+- [ ] Delete the `192.64.119.69` A record at Namecheap, add the `www` CNAME, then
+  re-save the custom domain in Settings → Pages and enable Enforce HTTPS.
+- [ ] `site.description` in `config.json` still says "refreshed daily", and it goes
+  into the meta description and og:description of every page. Same claim, same
+  problem, not yet fixed.
+- [ ] Apply to Airalo, Nomad, Holafly and Saily the day the site is reachable.
+- [ ] Put real prices in the Sheet, then verify a few against the providers' live
+  sites before publishing.
+- [ ] Set `SHEET_CSV_URL` as a repo secret so the Action can read the Sheet.
+- [ ] Widen the Action's `git add` so subdirectories publish.
+- [ ] Derive the sitemap list from `PAGES` so a page cannot ship unlisted.
+- [ ] `.gitignore.html` is still tracked and would deploy as a page.
+
+## Raised by Marty, 2026-09-03
+
+- [x] **[!] The domain name needed rethinking.** Marty does not like `esim.coach`.
+  Find alternatives before the DNS and HTTPS work is finished, because redoing it
+  later costs more than doing it now. What a change touches: the `CNAME` file at the
+  repo root, `site.base_url` in `data/config.json`, `SITE_BASE_URL` in the Action,
+  the A records and `www` CNAME at Namecheap, the custom domain in repo Settings →
+  Pages, and every absolute URL already written into `sitemap.xml`. None of it is
+  hard, but all of it has to move together. Worth checking availability and price on
+  a shortlist first, and worth deciding whether to keep `esim.coach` pointed at the
+  new name as a redirect rather than dropping it.
+
+- [ ] **[!] Capture every UK eSIM deal, not a hand-typed sample.** The Sheet holds 22
+  rows across 8 providers, all entered by hand, all dated 8 July. That does not
+  scale and it will drift out of date between edits. Two separate questions to
+  settle before building anything:
+  - Scope. "UK eSIM deals" can mean plans for visitors coming to the UK, plans for
+    UK travellers going abroad, or both. The site is currently built around the
+    second. The answer changes which providers matter and which pages get written.
+  - Source. Options, roughly cheapest first: keep the Sheet but widen it to every
+    provider worth listing and set a review cadence; pull structured feeds from the
+    affiliate networks once the four applications are approved, since most publish
+    product data; or scrape provider pricing pages on a schedule, which is the most
+    complete and by far the most fragile. A feed-plus-Sheet hybrid is probably the
+    realistic answer, with the Sheet as the override layer for anything a feed gets
+    wrong.
+  - Either way the pipeline already reads a CSV and does not care where it came
+    from, so this is a source problem rather than a rebuild.
+
+## Domain decision, 2026-09-03
+
+**Chosen: `esimsorted.co.uk`.** Confirmed available at the registry (Nominet RDAP)
+on 3 September. `esimsorted.com`, `.uk`, `.net`, `.org` and `.org.uk` are all free
+too.
+
+**Buy `.co.uk` and `.com` together, skip the rest.** About $15.40 a year for the
+pair at registry-standard pricing. `.co.uk` is canonical because the audience and
+the operator are both UK. The `.com` is worth $11 as a defensive hold and because
+the UK-inbound half of the audience (Americans searching for a UK eSIM) trusts a
+`.com`. Point it at the canonical with a free URL redirect in Namecheap's DNS,
+since GitHub Pages only accepts one custom domain.
+
+**Let `esim.coach` lapse.** It registers cheap and renews at $62.31 a year against
+$11.08 for a `.com` and $5.66 for a `.co.uk`. Nothing public links to it and it has
+no traffic to preserve, so there is no case for paying five times the going rate to
+keep a redirect alive.
+
+**Scope decided at the same time.** The site is built for the UK traveller going
+abroad, and that stays the spine: the homepage, the destination guides, and all four
+affiliate programmes are outbound products. A UK-inbound section comes next as a
+deliberate content cluster rather than an afterthought, because that is the only
+part of this market where a UK-run site has an edge worth having. The Sheet already
+carries the inbound products without the site admitting it - SMARTY, Sim Local's UK
+80GB on EE, and two of Honest Mobile's three plans are UK plans.
+
+### Rename checklist - all of it moves together
+
+- [ ] Buy `esimsorted.co.uk` and `esimsorted.com` at Namecheap.
+- [ ] **[!] Decide the brand name.** The domain change orphans "eSIM Coach". If it
+  becomes "eSIM Sorted" then `site.brand` in `data/config.json`, the logo at
+  `assets/img/logo.png`, every page title and the three legal pages all need to
+  follow. Not decided yet.
+- [ ] `CNAME` at the repo root: replace `esim.coach` with the new hostname.
+- [ ] `site.base_url` in `data/config.json`.
+- [ ] `SITE_BASE_URL` in `.github/workflows/update.yml`.
+- [ ] `site.description` in `data/config.json` - drop "refreshed daily" while
+  editing it, since the same false claim rides into the meta description and the
+  Open Graph description of every page.
+- [ ] Namecheap DNS on the new domain: four A records to `185.199.108-111.153`,
+  `www` as a CNAME to `mistertyr.github.io`. Do not repeat the stray parking A
+  record that broke HTTPS on `esim.coach`.
+- [ ] Repo Settings → Pages: set the custom domain, wait for the certificate, then
+  enable Enforce HTTPS.
+- [ ] Rebuild so `sitemap.xml` and every absolute URL pick up the new base.
+- [ ] Namecheap URL redirect on the `.com` pointing at the canonical.
+
+**Do not do the old `esim.coach` DNS fix.** Deleting the `192.64.119.69` record and
+issuing a certificate for a domain being abandoned is wasted work. The push to
+GitHub is still worth doing today - it is the backup, and it does not depend on
+which domain wins.
+
+## Provider scouting, 2026-09-03
+
+Started the longer provider list in `data/PROVIDER-SCOUTING.md`. Eight providers is
+not a comparison site. Three tiers: apply now, add for coverage, and the UK-inbound
+cluster for later.
+
+- [ ] Apply to Airalo, Nomad, Holafly and Saily, plus Jetpac and Ubigi, the day the
+  site is reachable.
+- [ ] **Join Awin the same day.** It already carries Breeze eSIM UK, WorldSIM,
+  eSIMania and Esim Prime, so one UK account reaches several merchants instead of
+  chasing each in-house programme. Small joining deposit, refunded against earnings.
+- [ ] Widen the Sheet to BNESIM, aloSIM, GigSky, Yesim and Roamless next, then work
+  down the Tier 2 list.
+- [ ] Record hotspot policy per plan. Holafly caps tethering and it is the most
+  common complaint about travel eSIMs, so it belongs in the data rather than in a
+  footnote. The Sheet has no column for it yet.
+- [ ] Nothing from the scouting list goes in the Sheet until the price is checked on
+  the provider's own site, with the date recorded in `timestamp`.

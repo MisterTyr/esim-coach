@@ -59,9 +59,12 @@ a { color: var(--accent-2); }
 .card .cta { display: block; text-align: center; text-decoration: none; background: var(--accent); color: #0a2e18; font-weight: 600; padding: 10px; border-radius: 10px; transition: .15s; }
 .card .cta:hover { filter: brightness(1.08); }
 .card.hidden { display: none; }
-.card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 8px 30px rgba(74,222,128,.15); }
-.card.featured .ribbon { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #0a2e18; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
-.card.featured h3 { margin-top: 20px; }
+.card.top-pick { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 8px 30px rgba(74,222,128,.15); }
+.card .ribbons { position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+.ribbon { font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+.ribbon-top { background: var(--accent); color: #0a2e18; font-weight: 700; }
+.ribbon-paid { background: transparent; color: #97a1b3; border: 1px solid #3a414f; font-weight: 600; }
+.card.top-pick h3, .card.placement h3 { margin-top: 20px; }
 .empty { color: var(--muted); padding: 40px 0; }
 
 /* Article pages */

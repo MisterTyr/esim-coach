@@ -77,7 +77,7 @@ def footer():
       <a href="/terms.html">Terms</a>
       <a href="/affiliate-disclosure.html">Affiliate disclosure</a>
     </nav>
-    <p class="copy">&copy; {year} {html.escape(SITE['brand'])}. Data refreshed daily.</p>
+    <p class="copy">&copy; {year} {html.escape(SITE['brand'])}.</p>
   </div>
 </footer>
 <script src="/assets/app.js" defer></script>
@@ -93,9 +93,15 @@ def render_card(p):
     value = f"{CUR}{ppg:.2f}/GB" if ppg else (f"{CUR}{ppd:.2f}/day" if ppd else "")
     price = p.get("price")
     price_disp = f"{CUR}{price:.2f}" if isinstance(price, (int, float)) else "—"
-    featured = p.get("featured")
-    classes = "card featured" if featured else "card"
-    ribbon = '<div class="ribbon">Top pick</div>' if featured else ""
+    placement = p.get("placement")
+    top_pick = p.get("top_pick")
+    classes = "card" + (" top-pick" if top_pick else "") + (" placement" if placement else "")
+    tags = ""
+    if top_pick:
+        tags += '<span class="ribbon ribbon-top">Top pick</span>'
+    if placement:
+        tags += '<span class="ribbon ribbon-paid">Paid placement</span>'
+    ribbon = f'<div class="ribbons">{tags}</div>' if tags else ""
     return f"""
     <article class="{classes}" data-region="{html.escape(p.get('region',''))}">
       {ribbon}
@@ -116,13 +122,21 @@ def build_index():
         for r in SITE["regions"]
     )
     cards = "".join(render_card(p) for p in plans) or '<p class="empty">No plans yet. Run the data refresh.</p>'
-    updated = datetime.now(timezone.utc).strftime("%d %b %Y")
+    stamps = [p.get("timestamp") for p in plans if p.get("timestamp")]
+    checked = ""
+    if stamps:
+        newest = max(stamps)
+        try:
+            shown = datetime.fromisoformat(newest).strftime("%d %b %Y")
+        except ValueError:
+            shown = newest[:10]
+        checked = f" Prices last checked {shown}."
     body = f"""
 <section class="hero">
   <div class="wrap">
     <h1>{html.escape(SITE['brand'])}</h1>
     <p class="tagline">{html.escape(SITE['tagline'])}</p>
-    <p class="sub">Travel eSIM plans ranked by real value — cost per GB and per day. Updated {updated}.</p>
+    <p class="sub">Travel eSIM plans ranked by real value: cost per GB and per day.{checked}</p>
   </div>
 </section>
 <section class="controls"><div class="wrap filters">{filters}</div></section>

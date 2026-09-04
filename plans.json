@@ -15,8 +15,10 @@
       "unlimited": true
     },
     "id": "b536a65eef",
-    "featured": true,
-    "rank": 1
+    "value_rank": 1,
+    "placement": true,
+    "rank": 1,
+    "top_pick": true
   },
   {
     "provider": "Honest Mobile",
@@ -34,7 +36,8 @@
       "unlimited": true
     },
     "id": "73e9e6009b",
-    "featured": true,
+    "value_rank": 5,
+    "placement": true,
     "rank": 2
   },
   {
@@ -53,7 +56,8 @@
       "unlimited": false
     },
     "id": "9ae036bfb7",
-    "featured": true,
+    "value_rank": 11,
+    "placement": true,
     "rank": 3
   },
   {
@@ -72,7 +76,8 @@
       "unlimited": false
     },
     "id": "8999555290",
-    "featured": false,
+    "value_rank": 2,
+    "placement": false,
     "rank": 4
   },
   {
@@ -91,7 +96,8 @@
       "unlimited": false
     },
     "id": "7b05dc33d6",
-    "featured": false,
+    "value_rank": 3,
+    "placement": false,
     "rank": 5
   },
   {
@@ -110,7 +116,8 @@
       "unlimited": true
     },
     "id": "a2cf29aea5",
-    "featured": false,
+    "value_rank": 4,
+    "placement": false,
     "rank": 6
   },
   {
@@ -129,7 +136,8 @@
       "unlimited": false
     },
     "id": "0a70a66499",
-    "featured": false,
+    "value_rank": 6,
+    "placement": false,
     "rank": 7
   },
   {
@@ -148,7 +156,8 @@
       "unlimited": false
     },
     "id": "35c5582815",
-    "featured": false,
+    "value_rank": 7,
+    "placement": false,
     "rank": 8
   },
   {
@@ -167,7 +176,8 @@
       "unlimited": false
     },
     "id": "add5e63f55",
-    "featured": false,
+    "value_rank": 8,
+    "placement": false,
     "rank": 9
   },
   {
@@ -186,7 +196,8 @@
       "unlimited": false
     },
     "id": "08ebc3fbf3",
-    "featured": false,
+    "value_rank": 9,
+    "placement": false,
     "rank": 10
   },
   {
@@ -205,7 +216,8 @@
       "unlimited": false
     },
     "id": "9ed29ecc38",
-    "featured": false,
+    "value_rank": 10,
+    "placement": false,
     "rank": 11
   },
   {
@@ -224,7 +236,8 @@
       "unlimited": false
     },
     "id": "bfd7d2e7a8",
-    "featured": false,
+    "value_rank": 12,
+    "placement": false,
     "rank": 12
   },
   {
@@ -243,7 +256,8 @@
       "unlimited": false
     },
     "id": "d3947e1bf8",
-    "featured": false,
+    "value_rank": 13,
+    "placement": false,
     "rank": 13
   },
   {
@@ -262,7 +276,8 @@
       "unlimited": false
     },
     "id": "874bf62b8d",
-    "featured": false,
+    "value_rank": 14,
+    "placement": false,
     "rank": 14
   },
   {
@@ -281,7 +296,8 @@
       "unlimited": true
     },
     "id": "72fae23263",
-    "featured": false,
+    "value_rank": 15,
+    "placement": false,
     "rank": 15
   },
   {
@@ -300,7 +316,8 @@
       "unlimited": true
     },
     "id": "27c7e72fb3",
-    "featured": false,
+    "value_rank": 16,
+    "placement": false,
     "rank": 16
   },
   {
@@ -319,7 +336,8 @@
       "unlimited": false
     },
     "id": "1649f61204",
-    "featured": false,
+    "value_rank": 17,
+    "placement": false,
     "rank": 17
   },
   {
@@ -338,7 +356,8 @@
       "unlimited": false
     },
     "id": "11b5820147",
-    "featured": false,
+    "value_rank": 18,
+    "placement": false,
     "rank": 18
   },
   {
@@ -357,7 +376,8 @@
       "unlimited": false
     },
     "id": "345e902f49",
-    "featured": false,
+    "value_rank": 19,
+    "placement": false,
     "rank": 19
   }
 ]

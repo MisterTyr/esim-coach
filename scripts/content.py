@@ -77,7 +77,7 @@ PAGES = {
 <p>For capped plans we sort by price per GB; for unlimited plans, by price per day. Longer validity breaks ties. We cap how many plans each provider can occupy so the list stays varied. The data refreshes daily.</p>
 
 <h2>How we're funded</h2>
-<p>Some outbound links are affiliate links, meaning we may earn a commission when you buy — at no extra cost to you. That never changes the ranking, which is driven only by the value maths. See our <a href="/affiliate-disclosure.html">affiliate disclosure</a> for detail.</p>
+<p>Some outbound links are affiliate links, meaning we may earn a commission when you buy, at no extra cost to you. The ranking itself is value maths: price per GB, or price per day for unlimited plans. One exception. Honest Mobile pays for the top three slots on the homepage. Their plans are labelled "Paid placement" wherever they sit there, and the plan that wins on value keeps the "Top pick" badge regardless. See our <a href="/affiliate-disclosure.html">affiliate disclosure</a> for the detail.</p>
 
 <h2>A note on accuracy</h2>
 <p>Prices and plan terms change constantly. We do our best to keep the data fresh, but always confirm the final price and coverage on the provider's own site before buying.</p>
@@ -131,7 +131,7 @@ PAGES = {
 <p>Some links to eSIM providers are affiliate links. If you click one and buy a plan, we may receive a commission. You pay exactly the same price — the provider funds the commission out of their margin, not by charging you more.</p>
 
 <h2>How it affects rankings</h2>
-<p>It doesn't. Plans are ranked purely by value (price per GB, or price per day for unlimited), with a per-provider cap for variety. Whether or not a provider has an affiliate program has no bearing on where its plans appear.</p>
+<p>Partly, and here is exactly how. Plans are ranked by value, price per GB or price per day for unlimited, with a per-provider cap so one brand cannot fill the page. Having an affiliate programme does not move a plan up that list. Separately from the ranking, Honest Mobile pays us for the top three positions on the homepage. Their plans sit there because they paid, they are labelled "Paid placement", and the arrangement is open to any provider on the same terms. The "Top pick" badge is not for sale. It goes to whichever plan wins the value maths.</p>
 
 <h2>Why we tell you</h2>
 <p>Because it's the right thing to do, and because disclosure is required by advertising rules in most countries. If you'd rather not use our links, you can always go directly to any provider's site.</p>

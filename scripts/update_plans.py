@@ -154,12 +154,17 @@ def rank_plans(plans):
     else:
         plans.sort(key=score_value)
 
-    # Pinned providers float to the top (stable — keeps their value order), and
-    # get a featured flag for the UI. Everything else keeps its ranked order.
+    # Record where each plan lands on value alone, before any paid placement
+    # is applied. The Top pick badge is awarded from this, so it cannot be bought.
+    for i, p in enumerate(plans, 1):
+        p["value_rank"] = i
+
+    # Paid placement: pinned providers float to the top, keeping their own value
+    # order. Flagged separately from merit so the UI can label it as placement.
     pinned = [x.lower() for x in rk.get("pin_providers", [])]
     if pinned:
         for p in plans:
-            p["featured"] = p["provider"].lower() in pinned
+            p["placement"] = p["provider"].lower() in pinned
         plans.sort(key=lambda p: (0 if p["provider"].lower() in pinned else 1))
 
     limit = rk.get("per_provider_limit", 5)
@@ -174,6 +179,9 @@ def rank_plans(plans):
     ranked = ranked[: rk.get("daily_top_n", 60)]
     for i, p in enumerate(ranked, 1):
         p["rank"] = i
+    # Top pick goes to the best plan on value alone, paid placement or not.
+    if ranked:
+        min(ranked, key=lambda p: p.get("value_rank", 9999))["top_pick"] = True
     return ranked
 
 
