@@ -2,7 +2,7 @@
 
 **When:** first, once. **Edits:** `data/config.json`, `assets/styles.css`.
 
-Most of this is already set (brand "eSIM Coach", domain esim.coach). Use this
+Most of this is already set (brand "eSIM Sorted", domain esim-sorted.co.uk). Use this
 prompt only if you want to change the name, tagline, regions, or colours.
 
 ---
@@ -13,9 +13,9 @@ PASTE THIS:
 I have a JSON config for a static eSIM comparison site. Update it with these
 values and return the complete file, nothing else:
 
-- brand: [eSIM Coach]
+- brand: [eSIM Sorted]
 - tagline: [Find your best-value eSIM in seconds.]
-- base_url: [https://esim.coach]
+- base_url: [https://esim-sorted.co.uk]
 - one-sentence meta description: [DESCRIPTION]
 - regions to show as filters: [Europe, North America, Asia, South America, Oceania, Africa, Global]
 

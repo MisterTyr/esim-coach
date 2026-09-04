@@ -1,4 +1,4 @@
-# eSIM Coach — prompt pack
+# eSIM Sorted — prompt pack
 
 Copy-paste prompts to get the site live fast. Each one is self-contained: paste
 it into any chat assistant, fill the `[BRACKETS]`, run. They're written to be

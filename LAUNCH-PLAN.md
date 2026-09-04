@@ -1,11 +1,11 @@
-# eSIM Coach — 7-day launch plan
+# eSIM Sorted — 7-day launch plan
 
 The build is done. This is the path from "files on disk" to "live, earning site"
 in a week. Each day is an hour or two. Prompt files referenced are in `prompts/`.
 
 ## Day 1 — Deploy the skeleton (with sample data)
 Get it live first; polish later. Push the folder to a GitHub repo, connect
-Cloudflare Pages (`prompts/07-deploy.md`), point esim.coach at it. You now have a
+Cloudflare Pages (`prompts/07-deploy.md`), point esim-sorted.co.uk at it. You now have a
 working site with sample plans. Confirm the homepage, filters, and pages load.
 
 ## Day 2 — Real plan data

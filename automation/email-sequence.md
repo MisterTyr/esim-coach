@@ -1,8 +1,8 @@
-# eSIM Coach — evergreen email sequence
+# eSIM Sorted — evergreen email sequence
 
 Four emails over 14 days for new subscribers. Plain, useful, no hard selling.
 Paste into any email tool (Beehiiv, MailerLite, ConvertKit, Buttondown). Each
-CTA links to a page on esim.coach with your affiliate links doing the earning.
+CTA links to a page on esim-sorted.co.uk with your affiliate links doing the earning.
 
 Merge tags shown as `{{first_name}}` — adjust to your tool's syntax.
 
@@ -15,7 +15,7 @@ Merge tags shown as `{{first_name}}` — adjust to your tool's syntax.
 
 Hi {{first_name}},
 
-Welcome to eSIM Coach. Here's the whole idea in one line: buy a data plan before you travel, install it in a minute, land with working internet — no roaming bill.
+Welcome to eSIM Sorted. Here's the whole idea in one line: buy a data plan before you travel, install it in a minute, land with working internet — no roaming bill.
 
 Before your next trip, do the one-minute check:
 1. Is your phone eSIM-capable? (Most since 2019 are.)
@@ -23,10 +23,10 @@ Before your next trip, do the one-minute check:
 3. Does the plan cover the countries you're visiting?
 
 If all three are yes, you're ready. Start here:
-→ [Today's best-value plans](https://esim.coach/)
+→ [Today's best-value plans](https://esim-sorted.co.uk/)
 
 More soon,
-eSIM Coach
+eSIM Sorted
 
 ---
 
@@ -42,9 +42,9 @@ Installing an eSIM is easier than people expect. Do it at home over Wi-Fi, then 
 The short version: buy the plan, scan the QR code the provider sends, label it, and turn on Data Roaming for that travel line only. That last step trips most people up — it's needed to connect abroad and it won't cost extra because the plan is prepaid.
 
 Full walkthrough with the exact iPhone and Android menus:
-→ [How to install an eSIM](https://esim.coach/how-to-install-esim.html)
+→ [How to install an eSIM](https://esim-sorted.co.uk/how-to-install-esim.html)
 
-eSIM Coach
+eSIM Sorted
 
 ---
 
@@ -62,9 +62,9 @@ Three common ways to overpay abroad — and what to do instead:
 3. **One country at a time.** On multi-country trips, a regional plan (all of Europe or Asia on one eSIM) beats buying a new plan at each border.
 
 We rank plans by real value — price per GB, or per day for unlimited — so you can see the cheap options at a glance:
-→ [Compare plans by value](https://esim.coach/)
+→ [Compare plans by value](https://esim-sorted.co.uk/)
 
-eSIM Coach
+eSIM Sorted
 
 ---
 
@@ -75,15 +75,15 @@ eSIM Coach
 
 Hi {{first_name}},
 
-Quick one. eSIM Coach refreshes its plan rankings every day, so the best-value option for your destination is always current.
+Quick one. eSIM Sorted refreshes its plan rankings every day, so the best-value option for your destination is always current.
 
 Bookmark the page for wherever you're headed next:
-→ [Browse plans by region](https://esim.coach/)
+→ [Browse plans by region](https://esim-sorted.co.uk/)
 
 And if a friend's about to travel, forward them this — the one-minute check at the top of email one has saved a lot of roaming bills.
 
 Safe travels,
-eSIM Coach
+eSIM Sorted
 
 ---
 

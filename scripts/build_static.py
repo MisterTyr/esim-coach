@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""eSIM Coach — build the static site.
+"""eSIM Sorted — build the static site.
 
 Renders index.html from plans.json + config, and renders every evergreen /
 legal page defined in content.py. All pages share one header, footer and
@@ -157,10 +157,19 @@ def build_pages():
     return len(PAGES)
 
 
+def build_robots():
+    """Generated from config so the sitemap URL cannot drift from base_url."""
+    base = SITE["base_url"].rstrip("/")
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n"
+    )
+
+
 def main():
     n = build_index()
     m = build_pages()
-    print(f"Built index.html ({n} plans) + {m} content pages")
+    build_robots()
+    print(f"Built index.html ({n} plans) + {m} content pages + robots.txt")
 
 
 if __name__ == "__main__":

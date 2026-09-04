@@ -23,7 +23,7 @@ jobs:
 
       - name: Refresh data and rebuild site
         env:
-          SITE_BASE_URL: https://esim.coach
+          SITE_BASE_URL: https://esim-sorted.co.uk
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}   # set in repo Settings → Secrets → Actions
         run: |
           python scripts/update_plans.py
@@ -31,8 +31,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name "esim-coach-bot"
+          git config user.name "esim-sorted-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add plans.json sitemap.xml index.html *.html
+          git add plans.json sitemap.xml '*.html'   # quoted glob matches subdirectories too
           git commit -m "Daily refresh $(date -u +%Y-%m-%d)" || echo "No changes to commit"
           git push

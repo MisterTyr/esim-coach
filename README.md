@@ -1,11 +1,11 @@
-# eSIM Coach
+# eSIM Sorted
 
 A low-maintenance, static travel-eSIM comparison site. It reads plan data from a
 CSV (or a Google Sheet / API), ranks plans by real value ($/GB, or $/day for
 unlimited), and rebuilds every page. No database, no server, no build framework —
 just Python that writes HTML. A daily GitHub Action keeps it fresh on its own.
 
-Domain: **esim.coach**
+Domain: **esim-sorted.co.uk**
 
 ## How it works
 ```
@@ -40,7 +40,7 @@ long as you're using the local CSV source.)
 ## Get it live
 See **LAUNCH-PLAN.md** for the 7-day path, and **prompts/07-deploy.md** for host
 setup. Short version: push to GitHub, connect Cloudflare Pages (no build command,
-serve root), point esim.coach at it.
+serve root), point esim-sorted.co.uk at it.
 
 ## Adding content
 - **Live data via Google Sheet:** set `SHEET_CSV_URL` to a published-Sheet CSV link

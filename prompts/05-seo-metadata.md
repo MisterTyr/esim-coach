@@ -12,10 +12,10 @@ PASTE THIS:
 
 ```
 Here are page titles and meta descriptions for a travel eSIM comparison site
-(brand: eSIM Coach). Rewrite each pair to be more clickable in search results.
+(brand: eSIM Sorted). Rewrite each pair to be more clickable in search results.
 
 Rules:
-- Title: under 60 characters, includes the main keyword, ends with " | eSIM Coach"
+- Title: under 60 characters, includes the main keyword, ends with " | eSIM Sorted"
   where it fits.
 - Description: 140-160 characters, one benefit + a reason to click. No hype words.
 - Return as a simple list: filename -> new title -> new description.

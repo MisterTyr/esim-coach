@@ -1,15 +1,23 @@
 {
   "site": {
-    "brand": "eSIM Coach",
+    "brand": "eSIM Sorted",
     "tagline": "Find your best-value eSIM in seconds.",
-    "base_url": "https://esim.coach",
-    "description": "eSIM Coach ranks travel eSIM plans by real value (per GB and per day), refreshed daily. No SIM swaps, no roaming bills.",
-    "regions": ["Europe", "North America", "Asia", "South America", "Oceania", "Africa", "Global"]
+    "base_url": "https://esim-sorted.co.uk",
+    "description": "eSIM Sorted ranks travel eSIM plans by real value (per GB and per day) for UK travellers. No SIM swaps, no roaming bills.",
+    "regions": [
+      "Europe",
+      "North America",
+      "Asia",
+      "South America",
+      "Oceania",
+      "Africa",
+      "Global"
+    ]
   },
   "currency_display": "GBP",
-  "currency_symbol": "£",
+  "currency_symbol": "\u00a3",
   "affiliate": {
-    "utm_source": "esimcoach",
+    "utm_source": "esimsorted",
     "utm_medium": "site",
     "utm_campaign": "ranker"
   },
@@ -17,7 +25,9 @@
     "strategy": "value",
     "daily_top_n": 60,
     "per_provider_limit": 5,
-    "pin_providers": ["Honest Mobile"]
+    "pin_providers": [
+      "Honest Mobile"
+    ]
   },
   "sources": [
     {

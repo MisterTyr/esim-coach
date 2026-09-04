@@ -283,3 +283,130 @@ cluster for later.
   footnote. The Sheet has no column for it yet.
 - [ ] Nothing from the scouting list goes in the Sheet until the price is checked on
   the provider's own site, with the date recorded in `timestamp`.
+
+## Session 2026-09-04 — the rename, and why nothing has ever published
+
+**GitHub Pages has been switched off the whole time.** The repo is private on a
+free GitHub plan, and free-tier Pages only works on public repos. Settings →
+Pages says so in as many words: "Upgrade or make this repository public to
+enable Pages." So `main` has been correct since 2 September, the daily Action has
+run and committed twice, and none of it has ever reached the web. What
+`esim.coach` serves is a stale deployment of the October 2025 eSIMRanker
+scaffold, left over from whenever Pages last built — GitHub still offers an
+"Unpublish" button for it.
+
+This also explains the earlier HTTPS diagnosis being a dead end. The stray
+`192.64.119.69` A record is real, but even with perfect DNS the site would have
+served the 2025 scaffold, because nothing was rebuilding it.
+
+That stale page is an honesty problem while it stands. Its affiliate disclosure
+says "Affiliate partners cannot pay for preferential placement", which stopped
+being true the moment the Honest Mobile pin went in.
+
+- [ ] **[!] Make the repo public, or pay for GitHub Pro** (~$4/month) to keep it
+  private. Scanned the tracked files first: nothing sensitive beyond
+  `hello@esim.coach` in the archived legal pages. `SHEET_CSV_URL` is a proper
+  Actions secret. The plain-text Sheet URL in `data/config.json` is a
+  publish-to-web link, already readable by anyone holding it, so going public
+  costs obscurity rather than security. Recommendation: make it public.
+- [ ] Once Pages is enabled, the old deployment needs replacing or unpublishing.
+
+**The disclosure fix was already pushed.** `origin/main` is at `3d651aa`,
+working tree clean, nothing left uncommitted from 3 September. Verified against
+`origin/main` rather than the local copy. It just isn't visible to anyone.
+
+### The rename is done locally — 28 files changed, not committed
+
+- [x] `CNAME` → `esim-sorted.co.uk`. **Note the hyphen.** Marty registered the
+  hyphenated form, not the `esimsorted.co.uk` this tracker had planned. Every
+  reference below uses the hyphenated one.
+- [x] `site.brand` → "eSIM Sorted". Brand decided.
+- [x] `site.base_url` → `https://esim-sorted.co.uk`.
+- [x] `site.description` rewritten, "refreshed daily" gone. It rode into the meta
+  description and og:description of all eight pages; those are rebuilt.
+- [x] `SITE_BASE_URL` and the bot name in `.github/workflows/update.yml`.
+- [x] "eSIM Coach" replaced through `content.py`, the prompt pack, `README.md`,
+  `LAUNCH-PLAN.md`, `automation/email-sequence.md` and the script docstrings.
+- [x] **Cut the untrue disclosure line.** The claim that the paid placement is
+  "open to any provider on the same terms" is gone from `content.py` and the
+  rendered page. Marty confirmed it was not true.
+- [x] Found and cut a second false refresh claim: `about.html` still said "The
+  data refreshes daily" in the ranking explanation.
+- [x] Rebuilt. 19 plans, 7 content pages, sitemap and robots regenerated.
+
+Still open on the rename:
+
+- [ ] **The logo.** Marty is supplying a new image rather than having one
+  generated. `assets/img/logo.png` is untouched and still says "eSIM Coach".
+- [ ] **The colour scheme.** Marty supplied a palette: Desert Sand `#ECC8AF`,
+  Powder Blush `#E7AD99`, Dusty Rose `#CE796B`, Toasted Almond `#C18C5D`, Blue
+  Slate `#495867`. Applied to the real plan cards in a preview artifact for him
+  to choose light or dark ground. Worth knowing: none of the four warm colours
+  pass WCAG AA for body text on a light background — Dusty Rose is the best at
+  3.0 against 4.5 needed — so on a light site they can only be fills and edges,
+  with Blue Slate carrying the type. All four pass on a dark ground.
+- [ ] Buy the `.com` as a defensive hold and redirect it. Not bought yet.
+- [ ] Namecheap DNS on `esim-sorted.co.uk`: four A records to
+  `185.199.108-111.153`, `www` as a CNAME to `mistertyr.github.io`. Do not repeat
+  the stray parking A record.
+- [ ] Repo Settings → Pages: set the custom domain, wait for the certificate,
+  enable Enforce HTTPS. Blocked on the repo being public.
+
+### Traps closed this session
+
+- [x] **The Action's `git add` missed subdirectories.** Now
+  `git add plans.json sitemap.xml '*.html'` — the quoted glob matches at any
+  depth, so a future `/guides/` folder will publish.
+- [x] **The sitemap list was hardcoded separately from `PAGES`.** `write_sitemap`
+  now derives it from `content.PAGES`, so a page cannot ship unlisted.
+- [x] **`robots.txt` had `esim.coach` hardcoded and was not generated.** It would
+  have pointed search engines at a dead sitemap after the rename. `build_static.py`
+  now writes it from `base_url`.
+
+Still open:
+
+- [ ] Auto-push with no review. The workflow holds `contents: write` and pushes
+  straight to main. Once the Sheet holds real prices, a bad spreadsheet edit goes
+  live unattended the next morning.
+- [ ] `Archive Build/` still committed, 21 files.
+
+### Research folded in — 2026-09-04
+
+Marty supplied a market research document covering UK outbound and UK inbound.
+Filed as `data/MARKET-RESEARCH-2026-09.md`, with the parts that change the build
+written up at the end of `data/PROVIDER-SCOUTING.md`. Nothing in it is verified,
+so nothing goes in the Sheet until checked against the provider.
+
+The sharpest finding is a correctness problem rather than a missing column:
+
+- [ ] **"Unlimited" is not one thing, and the ranking treats it as though it is.**
+  Ubigi's UK unlimited runs 25GB at full speed over seven days, then 2Mbps; the
+  30-day gives 60GB. `update_plans.py` ranks unlimited plans on price per day, so
+  a throttled plan and an uncapped one at the same price rank identically today.
+  Fix needs `full_speed_gb` and `post_cap_speed` in the Sheet, then rank capped
+  "unlimited" plans on price per full-speed GB.
+- [ ] **Add a `voice_type` column** — `native` / `app_voip` / `external_voip` /
+  `none`. Most comparison sites lump data-only in with voice-capable plans. A
+  "includes calls" filter is something the big sites do not offer, and in places
+  like the UAE where VoIP is restricted the distinction is a real one.
+- [ ] Nine proposed Sheet columns in total, listed in `PROVIDER-SCOUTING.md`. The
+  research suggests about thirty; nine is what a hand-maintained Sheet survives.
+- [ ] **Pull three providers forward**: Orange Travel (the strongest data + calls
+  + SMS product found, and it sells a UK visitor eSIM too, so it sits in both
+  clusters), Rewild Mobile (UK-based, cheapest on 1–10GB across most destinations
+  in the July 2026 Which? comparisons), and Three UK PAYG (£10 for 40GB UK plus
+  6GB roaming across 70+ destinations with unlimited qualifying calls and texts in
+  Europe — nothing in the travel-eSIM set matches it, and no travel-eSIM
+  comparison site lists it).
+- [ ] The inbound cluster should not restrict itself to products marketed as
+  travel eSIMs. EE's UK Travel eSIM is data-only at £15 for 7 days; O2 PAYG is £10
+  for 10GB with unlimited UK calls, texts and a real +44 number. That gap is the
+  edge a UK-run site has.
+
+### What needs Marty, in order
+
+1. Make the repo public (or upgrade). Nothing else reaches the web until this.
+2. Supply the logo, and pick light or dark from the palette preview.
+3. Namecheap DNS on `esim-sorted.co.uk`, then the custom domain in Settings → Pages.
+4. Apply to Airalo, Nomad, Holafly, Saily, Jetpac, Ubigi and Awin the day it resolves.
+5. Set `SHEET_CSV_URL` as a repo secret.

@@ -1,4 +1,4 @@
-// eSIM Coach — region filtering for the plan grid.
+// eSIM Sorted — region filtering for the plan grid.
 (function () {
   var filters = document.querySelectorAll('.filter');
   var cards = document.querySelectorAll('#grid .card');

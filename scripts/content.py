@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Evergreen and legal page content for eSIM Coach.
+"""Evergreen and legal page content for eSIM Sorted.
 
 Each entry: filename -> {title, desc, body}. The builder wraps every body in
 the shared header/footer and prepends an <h1> from `title`, so bodies start
@@ -68,13 +68,13 @@ PAGES = {
 """
     },
     "about.html": {
-        "title": "About eSIM Coach",
-        "desc": "What eSIM Coach does and how it ranks travel eSIM plans.",
+        "title": "About eSIM Sorted",
+        "desc": "What eSIM Sorted does and how it ranks travel eSIM plans.",
         "body": """
-<p>eSIM Coach helps travellers find a good-value data plan without wading through dozens of provider sites. We pull plan data, work out the real cost per gigabyte and per day, and rank what's actually good value.</p>
+<p>eSIM Sorted helps travellers find a good-value data plan without wading through dozens of provider sites. We pull plan data, work out the real cost per gigabyte and per day, and rank what's actually good value.</p>
 
 <h2>How ranking works</h2>
-<p>For capped plans we sort by price per GB; for unlimited plans, by price per day. Longer validity breaks ties. We cap how many plans each provider can occupy so the list stays varied. The data refreshes daily.</p>
+<p>For capped plans we sort by price per GB; for unlimited plans, by price per day. Longer validity breaks ties. We cap how many plans each provider can occupy so the list stays varied.</p>
 
 <h2>How we're funded</h2>
 <p>Some outbound links are affiliate links, meaning we may earn a commission when you buy, at no extra cost to you. The ranking itself is value maths: price per GB, or price per day for unlimited plans. One exception. Honest Mobile pays for the top three slots on the homepage. Their plans are labelled "Paid placement" wherever they sit there, and the plan that wins on value keeps the "Top pick" badge regardless. See our <a href="/affiliate-disclosure.html">affiliate disclosure</a> for the detail.</p>
@@ -85,12 +85,12 @@ PAGES = {
     },
     "privacy-policy.html": {
         "title": "Privacy Policy",
-        "desc": "How eSIM Coach handles data and privacy.",
+        "desc": "How eSIM Sorted handles data and privacy.",
         "body": """
-<p>This policy explains what data eSIM Coach collects and how it's used. Last updated when this page was built.</p>
+<p>This policy explains what data eSIM Sorted collects and how it's used. Last updated when this page was built.</p>
 
 <h2>What we collect</h2>
-<p>eSIM Coach is a static site. We don't ask you to create an account or submit personal details to browse. If we use privacy-friendly analytics, it records aggregate, non-identifying usage (pages viewed, country, device type) to help us improve the site.</p>
+<p>eSIM Sorted is a static site. We don't ask you to create an account or submit personal details to browse. If we use privacy-friendly analytics, it records aggregate, non-identifying usage (pages viewed, country, device type) to help us improve the site.</p>
 
 <h2>Cookies and affiliate links</h2>
 <p>When you click an affiliate link, the destination provider may set a cookie to attribute a purchase to us. That's controlled by them, under their privacy policy, not ours.</p>
@@ -104,12 +104,12 @@ PAGES = {
     },
     "terms.html": {
         "title": "Terms of Use",
-        "desc": "Terms governing use of eSIM Coach.",
+        "desc": "Terms governing use of eSIM Sorted.",
         "body": """
-<p>By using eSIM Coach you agree to these terms.</p>
+<p>By using eSIM Sorted you agree to these terms.</p>
 
 <h2>Information only</h2>
-<p>eSIM Coach provides comparison information for convenience. We are not a mobile carrier and do not sell eSIM plans directly. Purchases happen on third-party provider sites under their terms.</p>
+<p>eSIM Sorted provides comparison information for convenience. We are not a mobile carrier and do not sell eSIM plans directly. Purchases happen on third-party provider sites under their terms.</p>
 
 <h2>No guarantee of accuracy</h2>
 <p>We work to keep pricing and plan details current, but they change frequently and may be out of date or contain errors. Always confirm price, data allowance and coverage on the provider's site before buying. We are not liable for decisions made on the basis of information here.</p>
@@ -123,15 +123,15 @@ PAGES = {
     },
     "affiliate-disclosure.html": {
         "title": "Affiliate Disclosure",
-        "desc": "How eSIM Coach uses affiliate links.",
+        "desc": "How eSIM Sorted uses affiliate links.",
         "body": """
-<p>Honesty first: eSIM Coach earns money through affiliate links.</p>
+<p>Honesty first: eSIM Sorted earns money through affiliate links.</p>
 
 <h2>What that means</h2>
 <p>Some links to eSIM providers are affiliate links. If you click one and buy a plan, we may receive a commission. You pay exactly the same price — the provider funds the commission out of their margin, not by charging you more.</p>
 
 <h2>How it affects rankings</h2>
-<p>Partly, and here is exactly how. Plans are ranked by value, price per GB or price per day for unlimited, with a per-provider cap so one brand cannot fill the page. Having an affiliate programme does not move a plan up that list. Separately from the ranking, Honest Mobile pays us for the top three positions on the homepage. Their plans sit there because they paid, they are labelled "Paid placement", and the arrangement is open to any provider on the same terms. The "Top pick" badge is not for sale. It goes to whichever plan wins the value maths.</p>
+<p>Partly, and here is exactly how. Plans are ranked by value, price per GB or price per day for unlimited, with a per-provider cap so one brand cannot fill the page. Having an affiliate programme does not move a plan up that list. Separately from the ranking, Honest Mobile pays us for the top three positions on the homepage. Their plans sit there because they paid, and they are labelled "Paid placement". The "Top pick" badge is not for sale. It goes to whichever plan wins the value maths.</p>
 
 <h2>Why we tell you</h2>
 <p>Because it's the right thing to do, and because disclosure is required by advertising rules in most countries. If you'd rather not use our links, you can always go directly to any provider's site.</p>

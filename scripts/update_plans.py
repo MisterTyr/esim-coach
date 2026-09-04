@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""eSIM Coach — refresh plan data.
+"""eSIM Sorted — refresh plan data.
 
 Reads enabled sources from data/config.json, normalizes rows, computes value
 metrics ($/GB, $/day), ranks by the configured strategy, and writes plans.json
@@ -7,6 +7,7 @@ plus sitemap.xml to the project root. No database, no build server.
 
 Run:  python3 scripts/update_plans.py
 """
+import sys
 import os, csv, io, json, hashlib, pathlib
 from datetime import datetime, timezone
 
@@ -187,8 +188,10 @@ def rank_plans(plans):
 
 def write_sitemap(base_url):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    pages = ["/", "/what-is-esim.html", "/how-to-install-esim.html", "/why-esim.html",
-             "/about.html", "/privacy-policy.html", "/terms.html", "/affiliate-disclosure.html"]
+    # Derived from content.PAGES so a page cannot ship unlisted.
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from content import PAGES
+    pages = ["/"] + ["/" + name for name in PAGES]
     urls = "".join(
         f"<url><loc>{base_url}{p}</loc><lastmod>{now}</lastmod></url>" for p in pages
     )

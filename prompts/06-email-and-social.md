@@ -13,12 +13,12 @@ cheap model — don't spend frontier tokens on tweets.
 PASTE THIS:
 
 ```
-Write a short weekly email for eSIM Coach subscribers. Tone: friendly, useful,
+Write a short weekly email for eSIM Sorted subscribers. Tone: friendly, useful,
 no hard sell. Structure:
 - subject line (under 50 chars) + preview line
 - 2-3 sentence intro
 - a "3 good-value picks this week" section — I'll paste the plans below
-- one closing line linking to https://esim.coach/
+- one closing line linking to https://esim-sorted.co.uk/
 
 Plans to feature:
 [paste 3 rows from plans.json or the CSV]
@@ -29,10 +29,10 @@ Plans to feature:
 PASTE THIS:
 
 ```
-Write 7 social captions for a travel eSIM comparison site (eSIM Coach).
+Write 7 social captions for a travel eSIM comparison site (eSIM Sorted).
 One per line, under 200 characters each, no hashtag walls (max 2 hashtags).
 Mix: a tip, a myth-buster, a "did you know", a destination angle. End each with
-a soft nudge to esim.coach. No emojis unless it genuinely helps.
+a soft nudge to esim-sorted.co.uk. No emojis unless it genuinely helps.
 Topics to draw from: avoiding roaming fees, installing an eSIM, regional vs
 single-country plans, keeping your home number.
 ```

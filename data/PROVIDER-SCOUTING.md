@@ -70,3 +70,94 @@ to widen the provider list without widening the admin.
 - Note which providers cap or block hotspot use. Holafly caps it. That is the
   single most common complaint about travel eSIMs and it is a real ranking factor
   for a value site, not a footnote.
+
+---
+
+# Market research, 4 September 2026
+
+Marty supplied a research document covering both directions of the market. It is
+saved as `data/MARKET-RESEARCH-2026-09.md`. Nothing in it is verified against a
+provider's own site, so it stays a list of who to look at, not data to publish.
+The parts that change what we build are below.
+
+## The finding that affects the ranking maths
+
+**"Unlimited" is not one thing, and the value engine currently pretends it is.**
+Ubigi's UK unlimited gives 25GB at full speed over seven days, then drops to
+2Mbps; its 30-day product gives 60GB before the same drop. Holafly and others
+have their own caps. `update_plans.py` ranks unlimited plans by price per day, so
+right now a throttled plan and an unthrottled one at the same price rank
+identically. That is a correctness problem in the engine, not a missing column.
+
+Two fields fix it: `full_speed_gb` and `post_cap_speed`. Once they exist, an
+unlimited plan with a full-speed allowance should rank on price per full-speed
+GB, and only a genuinely uncapped plan should rank on price per day.
+
+## The differentiator worth building around
+
+Most comparison sites lump data-only plans in with voice-capable ones. They are
+not equivalent products. A `voice_type` column with four values separates them:
+
+1. `native` — real cellular voice on the SIM
+2. `app_voip` — the provider's own app supplies calling (aloSIM bundles a Hushed
+   number; Roamless sells numbers in-app)
+3. `external_voip` — data only, but VoIP apps work
+4. `none`
+
+This matters commercially as well as editorially. In the UAE, VoIP is
+restricted, so "WhatsApp calling works" is not the same claim as "the plan makes
+phone calls". A filter for "includes calls" is something the big comparison
+sites do not offer.
+
+Providers the research flags as genuinely voice-capable: Orange Travel, Airalo
+Discover+, some Nomad destination plans, Saily Global with the number add-on,
+Roamless, and Three UK PAYG.
+
+## Proposed Sheet columns
+
+The research lists about thirty fields. That is more than a hand-maintained
+Sheet will survive. These nine additions are the ones that change a ranking or a
+buying decision:
+
+| Column | Values | Why |
+|---|---|---|
+| `direction` | `outbound` / `inbound` | Splits the two content clusters. The Sheet already holds inbound rows the site does not admit to. |
+| `voice_type` | `native` / `app_voip` / `external_voip` / `none` | The differentiator above. |
+| `calls_included` | minutes, or `unlimited`, or blank | Only meaningful when `voice_type` is native. |
+| `sms_included` | count, `unlimited`, or blank | As above. |
+| `number_country` | `UK` / `US` / blank | A visitor wanting a +44 number needs this. |
+| `full_speed_gb` | number, or blank if truly uncapped | Fixes the unlimited ranking. |
+| `post_cap_speed` | e.g. `2Mbps` | Reader-facing detail for the same problem. |
+| `hotspot` | `yes` / `capped` / `no` | Already on the list. Holafly caps it; most common complaint about travel eSIMs. |
+| `source_url` | provider's own page | Audit trail alongside `timestamp`. |
+
+## Providers to add, revised order
+
+Unchanged first five: BNESIM, aloSIM, GigSky, Yesim, Roamless.
+
+The research adds three the earlier list missed, all worth pulling forward:
+
+- **Orange Travel** — the strongest data + calls + SMS product found anywhere in
+  the research, covering 40+ European territories including the UK, and it sells
+  a UK visitor eSIM too. It sits in both clusters.
+- **Rewild Mobile** — UK-based, and came out cheapest on 1–10GB in the July 2026
+  Which? comparisons across Australia, Japan, China, Turkey, Egypt, Morocco,
+  Indonesia and the UAE. That is a lot of destination pages it would win.
+- **Three UK PAYG** — the "best travel eSIM is often not a travel eSIM" case.
+  £10 buys 40GB UK plus 6GB roaming across 70+ destinations with unlimited
+  qualifying calls and texts in Europe. Nothing in the travel-eSIM set matches
+  that for a UK traveller, and no travel-eSIM comparison site lists it.
+
+## UK-inbound cluster, expanded
+
+The research is firm that a visitor wanting a real +44 number is usually better
+served by a domestic PAYG eSIM than by a product marketed as a travel eSIM. EE's
+UK Travel eSIM is explicitly data-only at £15 for 7 days; O2 PAYG is £10 for
+10GB with unlimited UK calls and texts and a real number.
+
+Networks supporting PAYG eSIM as of April 2026: O2, Three, Vodafone, 1pMobile,
+Asda Mobile, giffgaff, iD Mobile, Lebara, Lyca Mobile, Tesco Mobile. Lebara is
+worth singling out for visitors who need to call home.
+
+**So the inbound cluster should not restrict itself to "travel eSIMs".** That is
+the edge a UK-run site has, and it is an editorial decision as much as a data one.
