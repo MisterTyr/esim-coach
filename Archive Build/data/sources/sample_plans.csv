@@ -1,5 +1,0 @@
-provider,plan_name,region,country,data_gb,validity_days,price_usd,product_url,timestamp
-Airalo,Eurolink 5GB,Europe,Multi,5,30,15.00,https://example.airalo.com/eurolink-5gb?aff=YOUR_AFFILIATE_ID,2025-10-01T09:00:00Z
-Nomad,USA 10GB,North America,USA,10,30,18.00,https://example.getnomad.app/usa-10gb?aff=YOUR_AFFILIATE_ID,2025-10-02T09:00:00Z
-Holafly,Japan Unlimited,Asia,Japan,unlimited,15,29.00,https://example.holafly.com/japan-unlimited?aff=YOUR_AFFILIATE_ID,2025-10-03T09:00:00Z
-Airalo,SEA 3GB,Asia,Multi,3,30,9.00,https://example.airalo.com/sea-3gb?aff=YOUR_AFFILIATE_ID,2025-10-04T09:00:00Z

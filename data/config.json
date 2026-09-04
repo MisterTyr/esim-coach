@@ -15,9 +15,9 @@
     ]
   },
   "currency_display": "GBP",
-  "currency_symbol": "\u00a3",
+  "currency_symbol": "£",
   "affiliate": {
-    "utm_source": "esimsorted",
+    "utm_source": "esim-sorted",
     "utm_medium": "site",
     "utm_campaign": "ranker"
   },
@@ -44,5 +44,12 @@
       "enabled": true,
       "fallback": true
     }
-  ]
+  ],
+  "checks": {
+    "require_live_source": true,
+    "min_rows": 8,
+    "max_row_drop_pct": 40,
+    "max_price": 500,
+    "max_stale_days": 90
+  }
 }

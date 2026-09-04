@@ -410,3 +410,124 @@ The sharpest finding is a correctness problem rather than a missing column:
 3. Namecheap DNS on `esim-sorted.co.uk`, then the custom domain in Settings → Pages.
 4. Apply to Airalo, Nomad, Holafly, Saily, Jetpac, Ubigi and Awin the day it resolves.
 5. Set `SHEET_CSV_URL` as a repo secret.
+
+## Session 2026-09-04, second sitting — logo, light theme, real prices
+
+The rename commit and the tracker update were both pushed before this session
+started. `origin/main` is at `b172bcd`. The "Marty has to push it" item from the
+last handover is done.
+
+### The light rebuild is in
+
+Marty supplied the logo: a horizontal lockup, dark type on transparent, in three
+of the five palette colours — Blue Slate `#495867`, Dusty Rose `#CE796B`,
+Toasted Almond `#C18C5D`. It was split into three files: `logo.png` (the full
+lockup with the tagline, used for social sharing), `logo-wordmark.png` (no
+tagline, used in the header) and `favicon.png` (the thumbs-up mark, square).
+The header no longer prints the brand name beside the logo, because the logo
+already contains it.
+
+**That settled the light-or-dark question.** Dark type on a dark navy ground is
+invisible, so the site went light. Blue Slate carries the type; the warm colours
+are fills, edges and accents. One addition to the palette: **Dusty Rose is
+darkened to `#A85647` wherever white text sits on it**, because pure `#CE796B`
+only reaches 3.2:1 against white and body text needs 4.5. The pure colour is
+still used for borders and the Top pick card edge, where nothing has to be read
+off it.
+
+The two badges stay distinct in shape as well as colour: "Top pick" is a solid
+rose pill, "Paid placement" is a square outlined tag. That difference survives
+being printed in black and white.
+
+### The ranking bug is fixed, and the research changed the fix
+
+`full_speed_gb` alone was not enough. Most providers cap **per day**, not per
+plan — Airalo 3GB/day, Saily 5GB/day, Nomad 2GB/day — while Ubigi caps the whole
+plan. Written as a bare number those look alike and are nothing like each other.
+
+- `full_speed_period` (`per_day` / `per_plan`) is now in the schema. A per-day cap
+  is multiplied by validity, so Airalo's 30-day unlimited scores as 90GB.
+- `score_value` now ranks in three tiers: anything with a real full-speed GB
+  figure on price per GB, genuinely uncapped plans below them on price per day,
+  incomplete rows last. Marty chose "rank uncapped last" over assuming a usage
+  figure.
+- Nine more columns are in the pipeline and documented in `SHEET-SETUP.md`:
+  `direction`, `voice_type`, `calls_included`, `sms_included`, `number_country`,
+  `full_speed_gb`, `full_speed_period`, `post_cap_speed`, `hotspot`, `source_url`.
+- The card now says "Unlimited, 3GB a day at full speed" and carries short plain
+  lines about throttling, calls and hotspot limits.
+- `about.html` and `affiliate-disclosure.html` were rewritten to describe the new
+  ranking. They both still said "price per GB, or price per day for unlimited",
+  which stopped being true the moment this landed.
+
+### The daily Action can no longer publish rubbish
+
+`update_plans.py` checks the data before it writes anything, and leaves the
+published files untouched if a check fails. Limits live in `checks` in
+`config.json`. The most valuable one: **if the Sheet returns nothing and the run
+is about to publish the local sample file, it stops.** That was the failure
+nobody would have noticed. Verified working — the run refuses on this machine,
+which has no network. Use `ALLOW_SAMPLE_DATA=1` to build from the sample on purpose.
+
+### Prices checked against providers, and one big problem
+
+Full write-up in `data/PRICE-CHECK-2026-09-04.md`. Verified rows are in
+`data/verified/`. **Nothing has been loaded into the Sheet.**
+
+- [ ] **Most of it is not in pounds.** The checks ran from a US connection and
+  nearly every travel eSIM company sets currency client-side, so Nomad, Holafly,
+  Saily, Jetpac, Ubigi, Orange and Sim Local all came back in dollars or euros.
+  Real prices, wrong currency, and converting them ourselves would be inventing a
+  number. **A second pass from a UK browser is the next job.** All the structure
+  is preserved, so it only needs the price column re-read.
+- [x] **Airalo, 25 rows in real GBP.** Their site honours `?currency=GBP`.
+- [x] **The UK networks in real GBP** — Three, SMARTY, Honest Mobile, O2,
+  giffgaff, EE.
+- [ ] **Honest Mobile's Sheet rows are wrong, and they are the paid placement.**
+  Smart SIM is £3.75 a month, not £45 a year, and it is an app-limited backup
+  with no calls, texts or number. Classic is £12.15 / £17.50 / £25.00. They also
+  show a lower "loyalty" price on every plan — decide which to display.
+- [ ] **Airalo has stopped selling sized plans** on Japan, Europe, USA and
+  Thailand. Unlimited only now.
+- [ ] **Holafly publishes no throttle figure anywhere.** They cannot be listed as
+  uncapped or as capped. Their rows need a card that says the limit is
+  unpublished. Hotspot is capped at 1GB a day, confirmed.
+- [ ] **EE's UK Travel eSIM cannot call 999.** Their own terms. Any inbound page
+  has to say so.
+- [ ] **The Three £10 claim was half right.** 40GB UK, 70+ destinations and
+  unlimited calls and texts all hold, but the roaming data is only 6GB and every
+  Three PAYG pack is speed-capped at 25Mbps from the first byte.
+- [ ] **Rewild Mobile could not be verified at all.** Their pricing is behind a
+  JavaScript picker. The "cheapest on 1–10GB" claim rests only on roundups.
+- [ ] Affiliate rates confirmed from providers' own sites: Airalo 10% via Impact,
+  Ubigi 10% / 60-day cookie via Impact, Saily 15% in-house, Jetpac "up to 15%",
+  Nomad on Impact but rate unpublished, **Holafly publishes no rate at all**.
+  These replace the roundup figures in `PROVIDER-SCOUTING.md`.
+
+### Destination guides written
+
+`esim-japan.html`, `esim-europe.html`, `esim-usa.html`, `esim-thailand.html`.
+Deliberately light on prices — this site has already been burned by claims that
+stopped being true, so the guides explain how the products differ and send people
+to the live table for numbers. Linked from a strip under the homepage filters and
+from the footer. The sitemap picks them up automatically now.
+
+### Housekeeping done
+
+- [x] `utm_source` hyphenated to `esim-sorted` to match the domain.
+- [x] `Archive Build/` removed from the working tree and untracked. Still in
+  history at `57ba2f7` if it is ever wanted.
+
+### Still needing Marty, in order
+
+1. **Make the repo public** (or pay for Pro). Nothing reaches the web until this.
+2. Namecheap DNS on `esim-sorted.co.uk`, then the custom domain in Settings →
+   Pages. Four A records to `185.199.108-111.153`, `www` CNAME to
+   `mistertyr.github.io.`, and do not repeat the stray parking record.
+3. Set `SHEET_CSV_URL` as a repo secret.
+4. Apply to Airalo, Nomad, Holafly, Saily, Jetpac, Ubigi and Awin.
+5. Decide whether UK network plans belong in the same ranking as travel eSIMs.
+   SMARTY does 100GB for £12, which is 12p a GB against Airalo's best of about
+   60p, so dropped in as-is they would take every top slot. The `direction`
+   column can split them. This should be a choice, not an accident.
+6. Buy the `.com` and redirect it.
