@@ -1,110 +1,108 @@
-# Prompt for the next eSIM Coach chat
+# Prompt for the next eSIM Sorted chat
 
-Name the chat: **eSIM Coach — deploy and monetise**
+Name the chat: **eSIM Sorted — brand, deploy and affiliate applications**
 
-Written 4 September 2026, replacing the version from 2 September. The repo has
-moved. It now lives at `~/git-repos/esim-coach`, outside iCloud. Connect that
-folder, not the old one in Documents.
+This is the eSIM Sorted project (renamed from eSIM Coach on 4 September). The
+repo is at `~/git-repos/esim-coach` — the folder name still says coach, the
+site does not. Connect that folder, not the old copy in
+`~/Documents/Claude/Projects/esim-coach`, which is iCloud-synced and became
+unreadable. Do not run two Cowork sessions against the same repo.
 
----
+Read `BUILD-TODO.md` first, then `data/PROVIDER-SCOUTING.md` and
+`data/config.json`.
 
-Copy everything below the line.
+## The one thing that explains everything
 
----
+**GitHub Pages has never published this site.** The repo is private on a free
+GitHub plan, and free-tier Pages only works on public repos — Settings → Pages
+says "Upgrade or make this repository public to enable Pages." So `main` has
+been correct since 2 September, the daily Action runs and commits fine, and
+nothing has ever reached the web. `esim.coach` serves a stale October 2025
+eSIMRanker deployment left over from before.
 
-Read `BUILD-TODO.md` in the connected folder, then `data/PROVIDER-SCOUTING.md`,
-`LAUNCH-PLAN.md` and `data/config.json`.
+That stale page is a live honesty problem: its disclosure says "Affiliate
+partners cannot pay for preferential placement", which stopped being true when
+the Honest Mobile pin went in.
 
-## Where things stand
+Nothing else on this list matters until Marty makes the repo public, or pays
+for GitHub Pro to keep it private. A scan found nothing sensitive in the tracked
+files. He was told this on 4 September and it is his click to make.
 
-**The site is live and has been publishing itself.** `esim.coach` is served by
-GitHub Pages from `MisterTyr/esim-coach`, which was already connected — nobody
-had to pick a host, it was done months ago. The daily Action committed and pushed
-on its own on 3 and 4 September, rebuilding from the sample CSV because
-`SHEET_CSV_URL` is not set as a repo secret.
+## Done on 4 September — do not redo
 
-**HTTPS is broken and deliberately not being fixed.** `esim.coach` has five A
-records: the four correct GitHub Pages IPs plus `192.64.119.69`, a Namecheap
-parking address. Requests landing on the fifth get the wrong certificate, and its
-presence stops GitHub issuing its own. Do not fix it. The domain is being
-replaced.
+- The rename is committed as `adf1c03`. Domain `esim-sorted.co.uk` (**hyphenated**
+  — the tracker's earlier `esimsorted.co.uk` plan is superseded), brand
+  "eSIM Sorted", `CNAME`, `base_url`, `SITE_BASE_URL` and the rebuild all moved
+  together.
+- The untrue disclosure line is cut. It claimed the paid placement was "open to
+  any provider on the same terms"; Marty confirmed it was not. A second false
+  "data refreshes daily" claim in `about.html` went with it.
+- Three silent-failure traps closed: the Action's `git add` now uses a quoted
+  glob so subdirectories publish; `write_sitemap` derives from `content.PAGES`;
+  `robots.txt` is generated from `base_url` instead of carrying a hardcoded
+  domain.
+- **The commit is local. Marty has to push it** — no GitHub credentials in the
+  sandbox.
 
-**The repo was rebuilt from a clean clone on 4 September.** The old copy in
-`~/Documents/Claude/Projects/esim-coach` was inside iCloud-synced Documents and
-became unreadable — git failed with `mmap failed: Operation canceled`, two objects
-from a commit could not be read, and directory listings came back nonsense.
-Nothing was lost. The old folder is still there and can be deleted once trusted.
-Do not put repos back in Documents, and do not run two Cowork sessions against the
-same repo.
+## Open, roughly in order
 
-## Decisions already made — do not reopen these
+1. **Repo public**, then Settings → Pages → custom domain, then the Namecheap
+   records. GitHub's docs are explicit that the custom domain goes in the repo
+   settings *before* DNS, to close a takeover window. Records are four A records
+   on `@` to `185.199.108-111.153` plus `www` CNAME to `mistertyr.github.io.` —
+   and delete Namecheap's default parking records, which is precisely what broke
+   HTTPS on `esim.coach`.
+2. **The logo.** Marty is supplying the image himself. `assets/img/logo.png`
+   still says "eSIM Coach".
+3. **The colour scheme.** Marty's palette: Desert Sand `#ECC8AF`, Powder Blush
+   `#E7AD99`, Dusty Rose `#CE796B`, Toasted Almond `#C18C5D`, Blue Slate
+   `#495867`. A preview artifact applies it to the real plan cards in both a
+   light and a dark treatment; he had not picked when the session ended. The
+   constraint that decides it: none of the four warm colours pass WCAG AA for
+   body text on a light ground (Dusty Rose is best at 3.0 against 4.5), so on a
+   light site they can only be fills and edges with Blue Slate carrying the type.
+   All four pass on dark. Keep the "Top pick" and "Paid placement" badges
+   visibly distinct in shape as well as colour — that difference is doing real
+   work now the placement is disclosed.
+4. **Apply to the affiliate programmes the day the domain resolves.** Airalo,
+   Nomad, Holafly, Saily, Jetpac, Ubigi, and join Awin (one UK account reaches
+   Breeze eSIM UK, WorldSIM, eSIMania and Esim Prime). Approvals are the only
+   clock Marty does not control.
+5. **Real prices in the Sheet.** It has only ever held the July sample — 22 rows,
+   all timestamped 2026-07-08, every `product_url` still `ref=YOUR_AFFILIATE_ID`.
+   Check every price on the provider's own site before it goes in.
+6. **Set `SHEET_CSV_URL` as a repo secret**, then watch one Action run.
+7. Buy the `.com` as a defensive hold and redirect it.
 
-**The Honest Mobile pin stays and is disclosed.** They pay for the top three
-homepage slots. `update_plans.py` now records `value_rank` before placement is
-applied and awards `top_pick` to whatever wins on value alone, so the green
-"Top pick" badge cannot be bought. Pinned plans carry a separate neutral "Paid
-placement" badge. `about.html` and `affiliate-disclosure.html` both describe the
-arrangement plainly. One claim in the disclosure needs checking: it says the
-arrangement is open to any provider on the same terms. Cut that line if it is not
-true.
+## From the research folded in on 4 September
 
-**The domain becomes `esimsorted.co.uk`.** Confirmed available, along with the
-`.com`. Buy both, roughly $15.40 a year for the pair, `.co.uk` canonical and the
-`.com` redirected to it in Namecheap. Let `esim.coach` lapse — it renews at $62.31
-against $11.08 for a `.com`. The rename checklist is in `BUILD-TODO.md` and every
-item on it has to move together. The brand name has not been decided: if the site
-becomes "eSIM Sorted" then `site.brand`, the logo, every page title and the three
-legal pages follow.
+Marty's market research is at `data/MARKET-RESEARCH-2026-09.md`; the parts that
+change the build are written up at the end of `data/PROVIDER-SCOUTING.md`.
+Nothing in it is verified — none of it reaches the Sheet until checked against
+the provider.
 
-**Scope is the UK traveller going abroad**, which is what the site already is and
-where all four affiliate programmes sell. UK-inbound visitors come second, as a
-deliberate content cluster rather than an afterthought, because that is the only
-part of this market where a UK-run site has an edge. The Sheet already carries the
-inbound products — SMARTY, Sim Local's UK 80GB on EE, and two of Honest Mobile's
-three plans are UK plans.
-
-## The job, in order
-
-1. **Confirm the disclosure fix is pushed and live.** Fourteen files were changed
-   on 4 September and left uncommitted for review. If they are still uncommitted,
-   read the diff, commit and push. Then load `esim.coach` and check the badges and
-   the two pages actually changed.
-2. **Buy the domain and do the rename**, following the checklist in
-   `BUILD-TODO.md`. Some of this needs Marty's logins — hand him the steps rather
-   than guessing.
-3. **Apply to the affiliate programmes the same day the new domain resolves.**
-   Airalo, Nomad, Holafly, Saily, plus Jetpac and Ubigi. And join Awin, which
-   already carries Breeze eSIM UK, WorldSIM, eSIMania and Esim Prime, so one UK
-   account reaches several merchants. Approvals are the only clock Marty does not
-   control.
-4. **Put real prices in the Sheet.** The published CSV works — it returns HTTP 200
-   and 22 rows — it has simply never held anything but the July sample data, all
-   timestamped 2026-07-08 with placeholder affiliate ids. Check every price on the
-   provider's own site before it goes in. Widen the provider list from
-   `data/PROVIDER-SCOUTING.md`, starting with BNESIM, aloSIM, GigSky, Yesim and
-   Roamless.
-5. **Set `SHEET_CSV_URL` as a repo secret**, then re-enable the daily Action and
-   watch one run before trusting it.
-6. **Swap the placeholder affiliate ids** as approvals land. All 19 `product_url`
-   values still carry `ref=YOUR_AFFILIATE_ID`. Test one link end to end.
+- **"Unlimited" is not one thing, and the ranking treats it as though it is.**
+  Ubigi's UK unlimited gives 25GB at full speed over seven days then 2Mbps.
+  `update_plans.py` ranks unlimited plans on price per day, so a throttled plan
+  and an uncapped one at the same price rank identically today. This is a
+  correctness bug in the value engine, not a missing column. Needs
+  `full_speed_gb` and `post_cap_speed`.
+- **A `voice_type` column** (`native` / `app_voip` / `external_voip` / `none`)
+  is the differentiator worth building around. No large comparison site offers
+  an "includes calls" filter.
+- **Three providers to pull forward**: Orange Travel, Rewild Mobile and Three UK
+  PAYG. Three's £10 PAYG — 40GB UK plus 6GB roaming across 70+ destinations with
+  unlimited qualifying calls and texts in Europe — beats the travel-eSIM set for
+  a UK traveller, and no travel-eSIM comparison site lists it.
 
 ## Traps still open
 
-- The Action's commit step is `git add plans.json sitemap.xml index.html *.html`,
-  which misses anything in a subdirectory. A future `/guides/` folder would never
-  publish.
-- Adding an article takes two edits in two files, `PAGES` in `scripts/content.py`
-  and the hardcoded list in `write_sitemap()`. Derive one from the other so a page
-  cannot ship unlisted.
-- The workflow holds `contents: write` and pushes straight to main with no review,
-  and the Sheet URL is committed in plain text. Once the Sheet holds real prices, a
-  bad spreadsheet edit goes live unattended the next morning.
-- `site.description` in `data/config.json` still says "refreshed daily", and it
-  rides into the meta description and Open Graph description of every page.
-- The Sheet has no column for hotspot policy. Holafly caps tethering, and it is the
-  most common complaint about travel eSIMs, so it belongs in the data.
-- `Archive Build/` is committed and kept, 21 files of the old scaffold including an
-  n8n flow and a Google Apps Script the current build does not use.
+- The workflow holds `contents: write` and pushes straight to main with no
+  review, and the Sheet URL is committed in plain text. Once the Sheet holds real
+  prices, a bad spreadsheet edit goes live unattended the next morning.
+- `Archive Build/` is committed and kept, 21 files of old scaffold.
+- The old `~/Documents/Claude/Projects/esim-coach` folder still exists and can be
+  deleted once the clean clone is trusted.
 
 ## Working rules
 
@@ -112,7 +110,3 @@ three plans are UK plans.
 - Verify prices against the providers rather than trusting the sheet or the sample.
 - Plain English, British spelling.
 - Update `BUILD-TODO.md` in the same session and say what to tick off on the board.
-
-## Marty's additions
-
-<!-- Add anything else here before starting the chat. -->
