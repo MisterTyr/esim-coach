@@ -531,3 +531,83 @@ from the footer. The sitemap picks them up automatically now.
    60p, so dropped in as-is they would take every top slot. The `direction`
    column can split them. This should be a choice, not an accident.
 6. Buy the `.com` and redirect it.
+
+## Session 2026-09-05 — the UK price re-check
+
+The job the last handover said to do first is done. Prices for the six providers
+that came back in dollars and euros have been re-read from Marty's own browser on
+a UK connection. Full write-up in `data/PRICE-CHECK-2026-09-05-GBP.md`, verified
+rows in `data/verified/2026-09-05-travel-esims-gbp.csv` — 229 rows.
+
+`data/PRICE-CHECK-2026-09-04-GBP.md` is a stub pointing at the new file and can
+be deleted; the sandbox is not allowed to delete files on the machine.
+
+### What to tick off
+
+- [x] **Re-check prices from a UK connection.** Nomad, Holafly, Saily, Ubigi,
+  Jetpac and Sim Local are all now in real pounds.
+- [x] Holafly's throttle re-checked. Still unpublished — searched their
+  destination pages for a fair use, throttle, Mbps or Kbps figure and there is
+  nothing. The "limit is unpublished" card is still needed. Hotspot 1GB a day
+  confirmed in their own words.
+- [x] Jetpac's 20GB-above-30GB oddity explained. It is not a rendering fault:
+  20GB is the only tier with no discount applied, so it genuinely costs more than
+  the discounted 30GB and 40GB packs. Real, and worth saying out loud.
+- [x] Orange's calls claim corrected. Only the **Europe** plans have unlimited
+  calls and texts. Everywhere else Data+Calls+SMS is metered, and the allowances
+  are small — the USA 20GB plan gives 15 minutes and 50 texts.
+
+### What changed our thinking
+
+- [ ] **Three providers show a British visitor dollars by default.** Ubigi,
+  Jetpac and Sim Local all price in USD from a UK connection until the visitor
+  finds the currency switcher. That is a product fact, not a research artefact,
+  and it belongs on their rows.
+- [ ] **Orange shows pounds but charges euros.** Their own small print: prices
+  are converted at a fixed rate and "Payment will be made in Euro". So the pound
+  figure is an estimate and the buyer gets a bank FX rate on top. **Orange is not
+  in the verified CSV** — we do not have a sterling price for them, only a
+  sterling guess. Needs a decision: leave them out, or list them with the row
+  saying it is charged in euros.
+- [ ] **Holafly no longer has a price ladder.** They sell by trip length now, any
+  whole number of days from 1 to 90, at the same price for every destination.
+  £4 for one day down to £1.23 a day at ninety. The Sheet can carry whichever
+  lengths we choose rather than whatever they happen to sell — 5, 7, 10, 15 and
+  30 suggested, to line up with everyone else.
+- [ ] **Nomad's catalogue has moved**, so the dollar list cannot be converted, it
+  has to be replaced. New 3GB and 50GB tiers, 14 and 21-day unlimited on Japan,
+  six unlimited lengths on the USA.
+
+### Two prices to open before they go live
+
+- [ ] **Nomad Thailand, 50GB for 10 days, £8.85.** That is 18p a GB, which beats
+  every travel eSIM row we hold and most of the UK networks.
+- [ ] **Orange Japan, 1GB for 7 days, 99p.** Cheapest single row in the whole
+  check. Also on that page, 100GB for 30 days (£23.99) costs less than 50GB
+  (£36.99).
+
+Both are either loss-leaders or broken pages, and the site cannot afford to
+publish the second kind.
+
+### New material for the inbound cluster
+
+- [ ] **Orange UK inbound with real minutes and texts** — 1GB 7d £4.99 with 200
+  texts and 60 minutes, up to 200GB 45d £61.99 with 1000 texts and 300 minutes.
+  This is the strongest answer yet to EE's Travel eSIM having no calls at all.
+  Still blocked on Orange not saying which country issues the number.
+- [ ] **Sim Local resells real UK network plans** with calls, texts and a number:
+  Three 20GB 30d £10, 100GB £15, 200GB £20, unlimited £35; EE 30GB £15, 100GB £20,
+  unlimited £40; Lycamobile 20GB 15d £10. Three's own PAYG is better value direct
+  (£10 buys 40GB, not 20GB), so Sim Local's real advantage is buying before
+  arrival.
+- [ ] **Ubigi UK unlimited for one day at £4** is the cheapest single-day
+  unlimited anywhere in this check.
+
+### Still open, unchanged
+
+- [ ] Make the repo public. Nothing has reached the web yet.
+- [ ] Push `62c90d3` and everything since. Still no GitHub credentials here.
+- [ ] Load the verified rows into the Sheet, Honest Mobile first.
+- [ ] Decide whether UK network plans share a ranking with travel eSIMs.
+- [ ] Say on any inbound page that EE's UK Travel eSIM cannot call 999.
+- [ ] The workflow still pushes straight to main with `contents: write`.
