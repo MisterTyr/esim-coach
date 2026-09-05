@@ -578,16 +578,32 @@ be deleted; the sandbox is not allowed to delete files on the machine.
   has to be replaced. New 3GB and 50GB tiers, 14 and 21-day unlimited on Japan,
   six unlimited lengths on the USA.
 
-### Two prices to open before they go live
+### Two prices to open before they go live — done, both real
 
-- [ ] **Nomad Thailand, 50GB for 10 days, £8.85.** That is 18p a GB, which beats
-  every travel eSIM row we hold and most of the UK networks.
-- [ ] **Orange Japan, 1GB for 7 days, 99p.** Cheapest single row in the whole
-  check. Also on that page, 100GB for 30 days (£23.99) costs less than 50GB
-  (£36.99).
+Opened in Marty's own browser on 5 September. Neither is a broken page. Both
+carry a catch that has to be printed next to the price.
 
-Both are either loss-leaders or broken pages, and the site cannot afford to
-publish the second kind.
+- [x] **Nomad Thailand, 50GB for 10 days, £8.85.** Real. The plan page confirms
+  it: 18p a GB, 5G, True network, hotspot allowed, supplied by Jade. What makes
+  it cheap is the clock. Nomad's own words on that plan: the plan starts when the
+  eSIM is *installed*, even outside Thailand, or 60 days after purchase if it is
+  never installed. So a buyer who installs it at home to "get it out of the way"
+  burns days of a ten-day plan before they land. Nomad prints its own warning —
+  install this one only after you arrive. It is also non-refundable and takes no
+  top-up. Card needed: **install on arrival, not before.**
+- [x] **Orange Japan, 1GB for 7 days, 99p.** Real, still 99p, and no
+  struck-through price next to it, so it is a standing price rather than a sale.
+  The catch is speed: **every Orange Japan plan is 4G, not 5G** — checked the
+  1GB and the 3GB and both say "in 4G". Nomad and Saily sell Japan at 5G for a
+  couple of pounds more. No calls, no SMS, unlimited hotspot, no daily cap.
+  Charged in euros like the rest of Orange.
+- [x] **Orange Japan 100GB cheaper than 50GB explained.** The 100GB and the 20GB
+  30-day carry a 50% OFF badge on the page; the 50GB carries nothing. Same
+  discount-on-some-tiers problem as Jetpac, and visible on the page, so the
+  ranking can say why rather than looking broken.
+
+Two new things for the rows: Nomad Thailand 50GB needs the install-on-arrival
+warning, and Orange Japan needs 4G on every row.
 
 ### New material for the inbound cluster
 
