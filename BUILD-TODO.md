@@ -632,5 +632,5 @@ warning, and Orange Japan needs 4G on every row.
 
 - [ ] 2026-10-05 Write the brand voice: three words plus one thing it never says (gaps doc in Drive)
 - [ ] 2026-10-05 Decide how paid placement (Honest Mobile) is worded in voice (gaps doc in Drive)
-- [ ] 2026-10-05 Confirm which copy is real: this folder or ~/git-repos/esim-coach, then onboard with a CLAUDE.md (gaps doc in Drive)
+- [x] 2026-10-05 Confirm which copy is real: this folder or ~/git-repos/esim-coach, then onboard with a CLAUDE.md (gaps doc in Drive). Answered 2 Nov 2026: ~/git-repos/esim-coach is the real copy; the old Forge folder was stale. The CLAUDE.md onboarding is still to do
 - [ ] 2026-10-05 Check Awin approval (gaps doc in Drive)
