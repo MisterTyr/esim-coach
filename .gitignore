@@ -4,3 +4,14 @@ __pycache__/
 *.pyc
 scripts/__pycache__/
 Claude outputs/
+
+# Secrets / local env
+.env
+*.env
+
+# Node
+node_modules/
+
+# iCloud sync duplicates
+.git 2/
+* 2

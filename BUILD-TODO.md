@@ -627,3 +627,10 @@ warning, and Orange Japan needs 4G on every row.
 - [ ] Decide whether UK network plans share a ranking with travel eSIMs.
 - [ ] Say on any inbound page that EE's UK Travel eSIM cannot call 999.
 - [ ] The workflow still pushes straight to main with `contents: write`.
+
+## From the inbox
+
+- [ ] 2026-10-05 Write the brand voice: three words plus one thing it never says (gaps doc in Drive)
+- [ ] 2026-10-05 Decide how paid placement (Honest Mobile) is worded in voice (gaps doc in Drive)
+- [ ] 2026-10-05 Confirm which copy is real: this folder or ~/git-repos/esim-coach, then onboard with a CLAUDE.md (gaps doc in Drive)
+- [ ] 2026-10-05 Check Awin approval (gaps doc in Drive)
