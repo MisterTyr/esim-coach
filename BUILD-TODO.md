@@ -634,3 +634,27 @@ warning, and Orange Japan needs 4G on every row.
 - [ ] 2026-10-05 Decide how paid placement (Honest Mobile) is worded in voice (gaps doc in Drive)
 - [x] 2026-10-05 Confirm which copy is real: this folder or ~/git-repos/esim-coach, then onboard with a CLAUDE.md (gaps doc in Drive). Answered 2 Nov 2026: ~/git-repos/esim-coach is the real copy; the old Forge folder was stale. The CLAUDE.md onboarding is still to do
 - [ ] 2026-10-05 Check Awin approval (gaps doc in Drive)
+
+## Session 2026-11-05 — the rebuild starts
+
+Decided with Marty: rebuild from concept to deploy. Picker plus editorial
+guides, outbound and inbound, optimised for search and AI answers, about an hour
+a week of upkeep, on the `rebuild` branch, hosted on Cloudflare Pages. Full
+brief in `docs/BRIEF.md`. This tracker covers the old build; the rebuild gets
+its own once the brief is agreed.
+
+- [x] **The site is live and the repo is public.** `esim-sorted.co.uk` resolves
+  to the four GitHub Pages addresses only. Every "make the repo public" and
+  "Namecheap DNS" item above is done.
+- [x] **Holding page on `main`** (`7c8892c`). Old pages, sitemap and
+  `plans.json` taken down; recoverable from `378ca3f`. The daily schedule is
+  paused, with manual runs only.
+- [x] Phase 1 brief written.
+- [!] **eSIMDB data cannot be used.** Their terms (17 June 2026) forbid scraping
+  and using their database to build a competing product. The code is ours; the
+  627,826 scraped plans are not publishable. Proposed: ask them for permission,
+  delete the scraped data, keep the code.
+- [ ] Six decisions at the bottom of `docs/BRIEF.md`.
+- [ ] Bring `_archive/esimdb` code into the repo. It isn't in git anywhere.
+- [ ] Enforce HTTPS in Settings → Pages. Plain http did not redirect on 5 Nov.
+- [ ] Apply to Impact, chase Awin, apply in-house to Saily and Jetpac.
