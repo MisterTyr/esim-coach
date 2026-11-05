@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://esim-sorted.co.uk/sitemap.xml
