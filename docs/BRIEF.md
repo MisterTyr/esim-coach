@@ -46,7 +46,7 @@ the product.**
 
 One site, two front doors. The picker's first question decides which one.
 
-### A question nobody else asks: do you need one at all?
+### A question nobody else asks: do you need one at all? — agreed 5 Nov, in at launch
 
 A lot of UK travellers already have roaming. It's free on some plans, and a
 daily charge on others. For a weekend in Spain, the honest answer is
@@ -161,7 +161,26 @@ What stays usable:
   covers Airalo, Ubigi, Nomad, Amigo and others, and Awin covers Sim Local and
   SimWallet. We confirmed those on the providers' own sites.
 
-**[Marty] Ask eSIMDB for permission.** Their terms allow use "with our prior
+### Building our own provider list — agreed in principle 5 Nov
+
+We use eSIMDB's provider *names and websites* only as a lead list, alongside
+other sources: the Impact and Awin marketplaces, app stores and search. Then
+we check every provider on its own site. That way no provider is in our
+list just because eSIMDB has it. Nothing eSIMDB-specific comes across: not
+their "certified" flag, their plan counts, their promo codes (ESIMDB15 and
+the like), their ratings or their tracking links. A provider discovery tool
+visits each provider's own site, checks `robots.txt`, and records:
+- the real site and whether it sells in GBP
+- whether there's an affiliate, partner or creator programme, with the page
+  that says so
+- which network runs it (Impact, Awin, CJ, PartnerStack, Tapfiliate,
+  Rewardful, Everflow or in-house), spotted from the signup link
+- the published commission and cookie length, where there is one
+- the date checked, with a link to the page as evidence
+
+The output is a review list. A person confirms each row before it counts.
+
+**[Marty] Ask eSIMDB for permission anyway.** Their terms allow use "with our prior
 written permission", and they cover "partner interfaces". A licensed feed
 would give us the breadth that collectors never will. I'd email them this
 week. I can draft the email. If they say yes, eSIMDB becomes the catalogue
@@ -201,9 +220,9 @@ the scraped data, keep the code, and keep `provider_verification.csv` and
 
 ## Brand
 
-### Voice **[Marty]**
+### Voice — agreed 5 Nov
 
-Proposed: **plain, straight, on your side.**
+**Plain, straight, on your side.**
 
 - *Plain*: British spelling, short sentences, no jargon left unexplained.
 - *Straight*: we say the catch before you find it, and we say "you don't
@@ -212,9 +231,9 @@ Proposed: **plain, straight, on your side.**
 
 **It never says** "unlimited" without saying what the limit really is.
 
-### Paid placement **[Marty]**
+### Paid placement — agreed 5 Nov
 
-Honest Mobile's pin is the only paid placement. Proposed rules:
+Honest Mobile's pin is the only paid placement. The rules:
 
 - The picker's recommendations are **never** paid. Merit only. That's the
   promise the whole site rests on.
