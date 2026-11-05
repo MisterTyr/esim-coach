@@ -658,3 +658,16 @@ its own once the brief is agreed.
 - [ ] Bring `_archive/esimdb` code into the repo. It isn't in git anywhere.
 - [ ] Enforce HTTPS in Settings → Pages. Plain http did not redirect on 5 Nov.
 - [ ] Apply to Impact, chase Awin, apply in-house to Saily and Jetpac.
+- [x] Decisions 5 Nov: voice ("plain, straight, on your side"), paid placement
+  (never in the picker), the 15 launch destinations, and the roaming baseline in
+  at launch. **No email to eSIMDB.**
+- [x] Scraped eSIMDB data deleted (1.1GB, plus the test fixture, which was trimmed
+  eSIMDB data). Code copied to `reference/`, with its entry point disabled.
+  Provider names and the 17 known sites kept as leads in `data/providers/leads.csv`;
+  our own eSIM.dog check kept in `data/providers/verification.csv`.
+- [~] **Provider discovery** (`pipeline/discover_providers.py`). Finds each
+  provider's own site, honours robots.txt, never gets past bot protection,
+  and records affiliate programme, network, commission and cookie length with an
+  evidence link. Output is a review list; nothing counts until confirmed.
+  Leads: eSIMDB's provider names only. Holafly isn't in eSIMDB's list, so it has
+  to be added by hand, and so do Jetpac's and Orange's real domains.

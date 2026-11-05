@@ -252,13 +252,18 @@ Keep the logo and palette, with Blue Slate carrying the type and the warm
 colours as fills. The rebuild gets proper design time in Phase 3. The picker
 should feel like a short, friendly form, not a spreadsheet.
 
-## Launch destinations **[Marty]**
+## Launch destinations — agreed 5 Nov
 
-Proposed 15, chosen for UK outbound traffic, plus the UK visitor hub:
+15, chosen for UK outbound traffic, plus the UK visitor hub:
 
 Europe (multi-country), Spain, France, Italy, Portugal, Greece, Turkey, USA,
 Canada, Mexico, Japan, Thailand, UAE, Australia, Egypt. **Plus: the UK, for
 visitors.**
+
+**Second wave, soon after launch (proposed):** China (blocked apps on local SIMs,
+which some eSIMs get around), India (ID check, and many eSIMs don't work there),
+Vietnam, Indonesia (Bali), Sri Lanka, Maldives, South Korea, Singapore, Morocco,
+South Africa, Dominican Republic and the Caribbean, New Zealand.
 
 ## Stack
 

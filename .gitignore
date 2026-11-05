@@ -15,3 +15,6 @@ node_modules/
 # iCloud sync duplicates
 .git 2/
 * 2
+
+# Discovery page cache
+.cache/
